@@ -1,0 +1,4 @@
+-- -*- coding:utf-8 -*-
+-- author:liushangliang@xunlei.com
+-- desc: 被init_by_lua_file调用，主要用来预加载模块
+-- 预加载的模块在fork的时候复制到worker中。
