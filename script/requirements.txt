@@ -1,3 +1,4 @@
 redis
 mysql-connector
 ConcurrentLogHandler
+requests
