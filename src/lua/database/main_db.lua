@@ -28,7 +28,7 @@ function MainDB.new(db_cfg)
 end
 
 function MainDB.close(self)
-    local ok, err = self.db:set_keepalive(100, 100)
+    local ok, err = self.db:set_keepalive(10000, 100)
     if not ok then
         ngx.log(ngx.ERR, "failed to set keepalive: ", err)
         return
