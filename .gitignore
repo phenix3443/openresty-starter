@@ -2,3 +2,7 @@
 __pycache__/
 *.pyc
 *.html
+GPATH
+GRTAGS
+GTAGS
+openresty-1.*/
