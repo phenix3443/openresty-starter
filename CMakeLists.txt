@@ -1,15 +1,14 @@
+# -*-coding:utf-8 -*-
+# author:phenix3443@gmail.com
+# desc: openresty 项目打包脚本
 cmake_minimum_required(VERSION 3.0)
 project(ad_server VERSION 0.0.0.1) #应该修改此处的project-name和对应的版本号
 
 # build section
+execute_process(COMMAND ${PROJECT_SOURCE_DIR}/build_openresty.sh)
 
 # install section
-
-install(SCRIPT install_openresty.cmake)
-
-# install(SCRIPT install_code.cmake)
-
-# include(InstallRequiredSystemLibraries)
+include(install.cmake)
 set(CPACK_PACKAGE_VERSION ${PROJECT_VERSION})
 set(CPACK_GENERATOR "TGZ")
 

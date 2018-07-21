@@ -1,11 +1,12 @@
+# -*-coding:utf-8 -*-
+# author:phenix3443@gmail.com
+# desc: openresty 项目打包脚本
+
 install(
-  # 存放一些常用的脚本
-  DIRECTORY tools/
-  DESTINATION tools
+  # 编译后的openresty目录
+  DIRECTORY openresty/
+  DESTINATION ./
   USE_SOURCE_PERMISSIONS
-  FILES_MATCHING
-  PATTERN "*.sh"
-  PATTERN "*.py"
   )
 
 install(
@@ -18,9 +19,9 @@ install(
   )
 
 install(
+  # 存放项目的nginx配置文件
   DIRECTORY src/conf/
   DESTINATION nginx/conf
-  # 存放项目的nginx配置文件
   USE_SOURCE_PERMISSIONS
   FILES_MATCHING
   PATTERN "*.conf"
@@ -30,9 +31,9 @@ install(
   )
 
 install(
+  # 存放第三方依赖库
   DIRECTORY lualib/
   DESTINATION nginx/lualib
-  # 存放第三方依赖库
   USE_SOURCE_PERMISSIONS
   FILES_MATCHING
   PATTERN "*.lua"
@@ -40,6 +41,7 @@ install(
   )
 
 install(
+  # lua代码存放目录
   DIRECTORY src/lua/
   DESTINATION nginx/lua
   USE_SOURCE_PERMISSIONS

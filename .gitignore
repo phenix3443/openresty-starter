@@ -7,3 +7,5 @@ GPATH
 GRTAGS
 GTAGS
 openresty-1.*/
+build/
+openresty/
