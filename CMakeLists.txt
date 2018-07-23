@@ -1,8 +1,8 @@
 # -*-coding:utf-8 -*-
 # author:phenix3443@gmail.com
-# desc: openresty 项目打包脚本
+# desc: openresty 项目编译打包脚本
 cmake_minimum_required(VERSION 3.0)
-project(ad_server VERSION 0.0.0.1) #应该修改此处的project-name和对应的版本号
+project(project_name VERSION 0.0.0.1) #应该修改此处的project-name和对应的版本号
 
 # build section
 execute_process(COMMAND ${PROJECT_SOURCE_DIR}/build_openresty.sh)

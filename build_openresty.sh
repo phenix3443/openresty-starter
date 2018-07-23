@@ -10,7 +10,7 @@ NGINX_BIN=${COMPILED_DIR}/nginx/sbin/nginx
 
 DOWNLOAD_URL="https://openresty.org/download/openresty-1.13.6.2.tar.gz"
 ZIPFILE=openresty-1.13.6.2.tar.gz
-UNZIP_DIR=${PROJECT_DIR}/openresty-1.13.6.2
+UNZIP_DIR=openresty-1.13.6.2
 
 function do_compile {
     RELEASE=$(lsb_release -is)
@@ -30,4 +30,5 @@ if [ -e ${NGINX_BIN} ]; then
 else
     echo "尚未编译过openresty"
     do_compile
+    echo "openresty编译完成"
 fi
