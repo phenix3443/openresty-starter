@@ -5,12 +5,9 @@
 
 local cjson = require("cjson.safe")
 local stringx = require("pl.stringx")
+local falcon_cfg = require("config/falcon")
 
-local export = {
-    need_reload = true,
-    default_step = 60,  --  in seconds
-    shm_key_mod_map = {}
-}
+local export = {}
 
 local function get_host_name()
     local f = io.popen ("/bin/hostname")
@@ -20,44 +17,35 @@ local function get_host_name()
     return hostname
 end
 
--- 注册shm_key的解析器
-function export.register_shm_key_mod(metric, mod)
-    ngx.log(ngx.DEBUG, metric, " register mod start")
-    if not metric then
-        ngx.log(ngx.ERR, "metric can not be nil")
-        return
-    end
-
-    -- module检查
-    if type(mod) ~= "table" then
-        ngx.log(ngx.ERR, "parser should be function")
+-- 检查metric handler是不是编写正确
+local function check_metric_handler(metric, handler)
+    if type(handler) ~= "table" then
+        ngx.log(ngx.ERR, metric, " handler should be table")
         return
     end
 
     local must_method = {"gen_shm_key","change_value", "get_falcon_info"}
+
     for _, f in pairs(must_method) do
-        local func = mod[f]
+        local func = handler[f]
         if not(func and type(func) == "function") then
-            ngx.log(ngx.ERR, "shm key mod invalid function:", f)
+            ngx.log(ngx.ERR, metric, " handler has invalid function:", f)
             return
         end
     end
 
-    export.shm_key_mod_map[metric] = mod
-    ngx.log(ngx.DEBUG, metric, " register mod finished")
     return true
 end
 
-function export.get_shm_key_mode(metric)
-    local mod = export.shm_key_mod_map[metric]
-    if not mod then
-        ngx.log(ngx.ERR, "can not find mod for ", metric)
+function export.get_metric_handler(metric)
+    local handler = falcon_cfg.metric_handlers[metric]
+    if not handler then
+        ngx.log(ngx.ERR, "can not find handler for ", metric)
         return
     end
-    return mod
+    return handler
 end
 
--- get metric from shm_key
 -- shm_key = metric:...
 local function get_metric_from_shm_key(shm_key)
     local arr = stringx.split(shm_key, ":")
@@ -67,33 +55,38 @@ local function get_metric_from_shm_key(shm_key)
     end
 
     local metric = arr[1]
-
+    ngx.log(ngx.DEBUG, shm_key, " metric is ", metric)
     return metric
 end
 
+-- 修改shm_name对应的值
 function export.store_stat_record(shm_name, shm_key, value)
     local metric = get_metric_from_shm_key(shm_key)
-    local mod = export.shm_key_mod_map[metric]
-    mod.change_value(shm_name, shm_key,value)
+    if not metric then
+        return
+    end
+
+    local handler = export.get_metric_handler(metric)
+    if not handler then
+        return
+    end
+
+    handler.change_value(shm_name, shm_key, value)
 end
 
 -- shm_key = metric:counter_type:....
 local function parse_shm_key(shm_key)
     local metric = get_metric_from_shm_key(shm_key)
     if not metric then
-        local log_msg = string.format("shm_key={},metric=%s", shm_key, metric)
-        ngx.log(ngx.DEBUG, log_msg)
         return
     end
 
-    -- 检查metric对应的tags方法是否已经注册
-    local mod = export.shm_key_mod_map[metric]
-    if not mod then
-        ngx.log(ngx.ERR,"shm_key has not mod:", shm_key)
+    local handler = export.get_metric_handler(metric)
+    if not handler then
         return
     end
 
-    local counter_type, tags = mod.get_falcon_info(shm_key)
+    local counter_type, tags = handler.get_falcon_info(shm_key)
 
     -- 检查counter有效性
     local valid_counter_type = {
@@ -102,8 +95,7 @@ local function parse_shm_key(shm_key)
     }
 
     if not valid_counter_type[counter_type]  then
-        local log_msg = string.format("invalid counter type,shm_key=%s,counter_type=%s", shm_key, counter_type)
-        ngx.log(ngx.ERR, log_msg)
+        ngx.log(ngx.ERR, "invalid counter type,shm_key=", shm_key,  " ,counter_type=", counter_type)
         return
     end
 
@@ -129,7 +121,7 @@ function export.gen_item(shm_key, value)
         endpoint = host_name,
         metric = metric,
         timestamp = ngx.time(),
-        step = export.default_step,
+        step = falcon_cfg.default_step,
         tags = report_tags,
         value = value,
         counterType = counter_type
@@ -172,5 +164,15 @@ function export.report(payload)
     return resp
 end
 
+local function init()
+    for metric,handler in pairs(falcon_cfg.metric_handlers) do
+        local ret = check_metric_handler(metric,handler)
+        if not ret then
+            ngx.log(ngx.ERR, metric, " handler has error")
+        end
+    end
+end
+
+init()
 
 return export

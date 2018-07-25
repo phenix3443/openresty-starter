@@ -1,18 +1,17 @@
 -- -*- coding:utf-8; -*-
 -- author:liushangliang
--- desc: http status parser
+-- desc: tps(task per second) shm key module
+
 local stringx = require("pl.stringx")
 
-local falcon = require("falcon/falcon")
-
-local export = {}
-
-export.metric = "status"
+local export = {
+    metric = "tps"
+}
 
 -- 生成shm_key，必备
--- shm_key=status:url:status_code
+-- shm_key=tps:url
 function export.gen_shm_key()
-    local shm_key = string.format("%s:%s:%s", export.metric, ngx.escape_uri(ngx.var.uri), ngx.var.status)
+    local shm_key = string.format("%s:%s", export.metric, ngx.escape_uri(ngx.var.uri))
     ngx.log(ngx.DEBUG, "shm_key=", shm_key)
     return shm_key
 end
@@ -24,7 +23,7 @@ function export.change_value(shm_name, shm_key, value)
         ngx.log(ngx.ERR, "ngx_lua_version too low")
     else
         local newval, err, forcible = dict:incr(shm_key, value, 0)
-        local log_msg = string.format("new value for %s=%s", shm_key, newval)
+        local log_msg = string.format("new value %s=%s", shm_key, newval)
         ngx.log(ngx.DEBUG, log_msg)
     end
 end
@@ -35,10 +34,9 @@ function export.get_falcon_info(shm_key)
     local arr = stringx.split(shm_key,":")
     local tags = {
         domain = ngx.var.server_name,
-        url = ngx.unescape_uri(arr[2]),
-        code = tonumber(arr[3])
+        url = ngx.unescape_uri(arr[2])
     }
     return counter_type, tags
 end
 
-falcon.register_shm_key_mod(export.metric, export)
+return export

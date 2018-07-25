@@ -35,9 +35,6 @@ install(
   DIRECTORY lualib/
   DESTINATION nginx/lualib
   USE_SOURCE_PERMISSIONS
-  FILES_MATCHING
-  PATTERN "*.lua"
-  PATTERN "*.so"
   )
 
 install(

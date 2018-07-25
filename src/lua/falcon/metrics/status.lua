@@ -3,16 +3,12 @@
 -- desc: http status parser
 local stringx = require("pl.stringx")
 
-local falcon = require("falcon/falcon")
-
-local export = {}
-
--- todo:
-export.metric = "example"
+local export = {
+    metric = "status"
+}
 
 -- 生成shm_key，必备
 -- shm_key=status:url:status_code
--- todo:
 function export.gen_shm_key()
     local shm_key = string.format("%s:%s:%s", export.metric, ngx.escape_uri(ngx.var.uri), ngx.var.status)
     ngx.log(ngx.DEBUG, "shm_key=", shm_key)
@@ -20,7 +16,6 @@ function export.gen_shm_key()
 end
 
 -- 修改shm_key对应的value，必备
--- todo
 function export.change_value(shm_name, shm_key, value)
     local dict = ngx.shared[shm_name]
     if ngx.config.ngx_lua_version < 10006 then
@@ -35,10 +30,8 @@ end
 -- 根据shm_key获取上报falcon的信息，必备
 function export.get_falcon_info(shm_key)
     local counter_type = "COUNTER"
-    -- local counter_type = ""
     local arr = stringx.split(shm_key,":")
     local tags = {
-        -- 在这里添加合适的tags
         domain = ngx.var.server_name,
         url = ngx.unescape_uri(arr[2]),
         code = tonumber(arr[3])
@@ -46,4 +39,4 @@ function export.get_falcon_info(shm_key)
     return counter_type, tags
 end
 
-falcon.register_shm_key_mod(export.metric, export)
+return export

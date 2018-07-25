@@ -21,4 +21,4 @@ def get_hostname():
 def report(payloads):
     agent_url = "http://{}:{}/v1/push".format(agent["host"], agent["port"])
     r = requests.post(agent_url, data=json.dumps(payloads))
-    print r.text
+    print(r.text)
