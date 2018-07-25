@@ -5,9 +5,9 @@
 
 local export = {}
 
-export.collect_redis = {
+export.example_redis = {
     -- 记录采集任务的缓存
-    ["host"] = "",
+    ["host"] = "127.0.0.1",
     ["port"] = "6379",
     ["password"] = "",
     ["db"] = 0,

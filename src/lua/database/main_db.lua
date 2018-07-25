@@ -47,6 +47,7 @@ function MainDB.get_db_version(self)
     end
     local resp = res[1].version
     ngx.log(ngx.DEBUG, "resp:", resp)
+    return resp
 end
 
 return MainDB
