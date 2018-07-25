@@ -1,7 +1,7 @@
 -- -*- coding:utf-8 -*-
 -- author:liushangliang@xunlei.com
 -- file: 接口统计代码
-
+local cjson = require("cjson.safe")
 local falcon_config = require ("config/falcon")
 local falcon = require ("falcon/falcon")
 
@@ -14,9 +14,7 @@ local function report()
     end
 
     local resp = falcon.report(payload)
-    if resp then
-        ngx.log(ngx.DEBUG, resp.body)
-    end
+    ngx.say(cjson.encode(resp))
 end
 
 report()

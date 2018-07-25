@@ -4,6 +4,6 @@
 
 # project crontab start
 
-
+* * * * * nginx/sbin/report_falcon.sh
 
 # project crontab end
