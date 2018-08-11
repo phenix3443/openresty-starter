@@ -1,0 +1,13 @@
+# -*- coding:utf-8-*-
+#+TITLE: 【项目名称】数据库设计说明
+#+AUTHOR: liushangliang
+#+EMAIL: phenix3443+github@gmail.com
+#+OPTIONS: author:nil date:nil creator:nil timestamp:nil validate:nil
+
+* 数据库设计
+
+
+* 数据库结构
+  | domain | db | table | note |
+  |--------+----+-------+------|
+  |        |    |       |      |

@@ -1,0 +1,14 @@
+# -*- coding:utf-8 -*-
+#+title:docs 布局
+#+author:刘尚亮
+#+email:liushangliang@xunlei.com
+
+该目录中的文件对应了该项目在 confluence 上面的记录，包括：
++ 项目说明（overview），主要说明项目作用，所属功能模块（高速，离线等），架构设计，数据库设计等。
++ 接口协议（protocol），说明项目涉及到和各端的通讯协议格式。
++ 配置说明（configure），说明项目有关的配置文件中配置项说明。
++ 外部依赖（dependency），依赖的其他项目模块，第三方代码模块，库依赖等。
++ 测试环境（test），说明项目部署的测试环境，该测试环境是开发自测的环境，不是质量组的测试环境。
++ 生产环境（online），说明项目在生产环境的部署情况，包括机房，端口，模块在机器的文件位置。
+
+上面这些目录或文件命名都应该使用 project_name 作为前缀，例如 cdn_manager_lua_overview.md 作为 cdn_manager_lua 的项目说明，如果单个文件太大，应该拆分为同一目录下的多个子文件。

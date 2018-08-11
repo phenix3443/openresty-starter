@@ -1,0 +1,34 @@
+# -*- coding:utf-8-*-
+#+TITLE: 【项目名称】生产环境
+#+AUTHOR: liushangliang
+#+EMAIL: phenix3443+github@gmail.com
+#+OPTIONS: author:nil date:nil creator:nil timestamp:nil validate:nil
+
+* 当前版本
+
+  说明当前生产环境的版本。
+
+* 部署
+  |      | ad_server | ad_material |
+  |------+-----------+-------------|
+  | LVS  |           |             |
+  | Host |           |             |
+  | Port |       443 |         443 |
+  | Dir  |           |             |
+
+* 依赖说明
+  此处是程序依赖在生产环境中的第三方服务依赖说明。
+
+* 数据库
+  | Domain | Host |
+  |--------+------|
+  |        |      |
+
+* 部署操作
+  此处详细说明完成的模块部署时进行的操作。
+   #+BEGIN_SRC sh
+
+   #+END_SRC
+
+* 验证操作
+  此处说明部署以后如何对功能进行验证。

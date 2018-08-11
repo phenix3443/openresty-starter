@@ -1,0 +1,40 @@
+# -*- coding:utf-8-*-
+#+TITLE:【项目名称】协议说明
+#+AUTHOR: liushangliang
+#+EMAIL: phenix3443+github@gmail.com
+#+OPTIONS: author:nil date:nil creator:nil timestamp:nil validate:nil
+
+* 概述
+
+* 请求参数
+** url
+   GET
+   POST
+** url param
+   #+BEGIN_SRC json
+
+   #+END_SRC
+** header
+   #+BEGIN_SRC json
+
+   #+END_SRC
+
+** body
+   #+BEGIN_SRC json
+
+   #+END_SRC
+* 响应参数
+  #+BEGIN_SRC json
+
+  #+END_SRC
+
+* 请求示例
+  #+BEGIN_SRC sh
+curl -v -d'' -H "Accept-Language:zh-CN" -H "Cookie:origin=1" https://ad-config.onethingpcs.com/ad/get_info
+  #+END_SRC
+
+* 响应示例
+  #+BEGIN_SRC json
+
+  #+END_SRC
+* 备注

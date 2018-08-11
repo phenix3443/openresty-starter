@@ -1,0 +1,11 @@
+# -*- coding:utf-8-*-
+#+TITLE:【项目名称】数据表说明
+#+AUTHOR: liushangliang
+#+EMAIL: phenix3443+github@gmail.com
+#+OPTIONS: author:nil date:nil creator:nil timestamp:nil validate:nil
+
+* 概述
+
+
+* 表结构
+  这里说明带注释的建表 sql 语句。
