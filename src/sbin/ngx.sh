@@ -3,7 +3,7 @@
 # author:liushangliang@xunlei.com
 # description: nginx http server.
 # Settings Nginx
-SERVER_NAME="ad_server"
+SERVER_NAME="project_name"      # 此处需要修改
 SCRIPT_DIR=$(cd $(dirname $0);pwd)
 NGINX_DIR=$(cd ${SCRIPT_DIR}/../;pwd)
 NGINX_CONF=${NGINX_DIR}/conf/nginx.conf
