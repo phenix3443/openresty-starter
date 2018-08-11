@@ -17,7 +17,7 @@ function do_compile {
     if [ ${RELEASE} == 'LinuxMint' -o ${RELEASE} == 'Ubuntu' ]; then
         sudo apt-get install libpcre3-dev libssl-dev perl make build-essential curl
     elif [ ${RELEASE} == 'CentOS' ]; then
-         sudo yum install -y pcre-devel openssl-devel gcc curl
+        sudo yum install -y pcre-devel openssl-devel gcc curl
     else
         exit 1
     fi
