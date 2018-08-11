@@ -41,7 +41,7 @@ restart(){
     start
 }
 
-configtest(){
+testconfig(){
     echo "${SERVER_NAME} config test: "
     ${NGINX_BIN} -t
     return 0
@@ -69,14 +69,14 @@ case "$1" in
     restart)
         restart
         ;;
-    configtest)
-        configtest
+    testconfig)
+        testconfig
         ;;
     monitor)
         monitor
         ;;
     *)
-        echo $"Usage: $0 {start|stop|reload|restart|configtest|monitor}"
+        echo $"Usage: $0 {start|stop|reload|restart|testconfig|monitor}"
         RETVAL=1
 esac
 
