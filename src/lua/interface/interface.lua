@@ -3,34 +3,28 @@
 -- desc:对外接口代码示例
 
 local cjson = require("cjson.safe")
-local http_cookie = require("resty.cookie")
+local cookie = require("resty.cookie")
 
 local main_db = require("database.main_db")
 
 local function get_req()
     local req = {}
     -- 检查header
-    local headers, cookie, body, err
-
-    headers = ngx.req.get_headers()
+    local headers = ngx.req.get_headers()
     ngx.log(ngx.DEBUG, "headers:", cjson.encode(headers))
 
     -- cookies
-    cookie, err = http_cookie:new()
+    local ck, err = cookie:new()
     if not cookie then
         ngx.log(ngx.ERR, "cookie new err:", err)
         return
     end
 
-    ngx.log(ngx.DEBUG, "cookie:", ngx.var.http_cookie)
-
-    local sid
-    sid, err = cookie:get("sessionid")
-
+    ngx.log(ngx.DEBUG, "cookie:", ck:get_all())
 
     -- 检查body
     ngx.req.read_body()
-    body = ngx.req.get_body_data()
+    local body = ngx.req.get_body_data()
     if not body then
         ngx.log(ngx.ERR, "invalid body: ", body)
         return
@@ -49,7 +43,7 @@ local function get_req()
         end
     end
 
-    ngx.log(ngx.INFO, "req: ", cjson.encode(req))
+    ngx.log(ngx.INFO, "req:", cjson.encode(req))
 
     return req
 end
