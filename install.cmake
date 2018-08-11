@@ -32,7 +32,7 @@ install(
 
 install(
   # 存放第三方依赖库
-  DIRECTORY lualib/
+  DIRECTORY lib/
   DESTINATION nginx/lualib
   USE_SOURCE_PERMISSIONS
   )

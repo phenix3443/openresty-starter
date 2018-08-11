@@ -1,1 +1,2 @@
 penlight
+lua-resty-cookie

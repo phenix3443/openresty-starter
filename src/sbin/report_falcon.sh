@@ -3,6 +3,7 @@
 # author:liushangliang@xunlei.com
 # description: nginx http server.
 # Settings Nginx
-SERVER_NAME="ad_server"
+SERVER_PORT=1235                # 修改为项目监听端口
 SCRIPT_DIR=$(cd $(dirname $0);pwd)
-wget "http://127.0.0.1:8080/stat/" > /dev/null 2>&1
+
+wget "http://127.0.0.1:${SERVER_PORT}/stat/" > /dev/null 2>&1

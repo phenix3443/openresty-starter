@@ -5,7 +5,7 @@
 local export = {}
 
 export.default_step= 60          -- in second
-export.shm_name = "project_falcon"             -- project.nginx.conf中声明的共享字典的名字
+export.shm_name = "falcon"
 export.metric_handlers = { -- 在此处添加新的统计模块
     qps = require("falcon/metrics/qps"),
     tps = require("falcon/metrics/tps"),
