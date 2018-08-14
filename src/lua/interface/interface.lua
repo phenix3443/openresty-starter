@@ -5,7 +5,15 @@
 local cjson = require("cjson.safe")
 local cookie = require("resty.cookie")
 
-local main_db = require("database.main_db")
+local cfg = require("config.config")
+local upstream_cfg = require("config.upstream")
+
+local database = require("database.database")
+local cache = require("cache.cache")
+
+local upstream = require("upstream.upsteam")
+
+local utils = require("utils.utils")
 
 local function get_req()
     local req = {}
