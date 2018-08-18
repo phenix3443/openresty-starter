@@ -41,17 +41,4 @@ function export.close(self)
     end
 end
 
-function export.get_info(self)
-    local info, err = self.red:info()
-    if not info then
-       ngx.log(ngx.ERR, "failed to get info: ", err)
-        return
-    end
-    ngx.log(ngx.DEBUG, "info:", info)
-
-    return info
-end
-
--- 添加业务代码
-
 return export

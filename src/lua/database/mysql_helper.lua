@@ -1,9 +1,10 @@
 -- -*- coding:utf-8 -*-
 -- author:liushangliang@xunlei.com
--- desc:main_db数据库接口
+-- desc:mysql辅助函数
 
 local cjson = require("cjson.safe")
 local mysql = require("resty.mysql")
+local tablex = require("pl.tablex")
 
 local export = {}
 local mt = {__index = export}
@@ -35,43 +36,26 @@ function export.close(self)
     end
 end
 
--- 下面自行编写业务代码
-function export.get_db_version(self)
-    -- 查询用户下载信息
-    local stmt = string.format("select version() as version;")
+function export.query(self, stmt)
     ngx.log(ngx.DEBUG, stmt)
+
     local res, err, errcode, sqlstate = self.db:query(stmt)
     if not res then
         ngx.log(ngx.ERR,string.format("%s:%s",errcode, err))
         return
     end
-    local resp = res[1].version
-    ngx.log(ngx.DEBUG, "resp:", resp)
-    return resp
-end
 
-function export.get_info(self, cond)
-    local values = {}
-    for i,v in pairs(cond) do
-        if tonumber(v) then
-            table.insert(values, string.format("%s=%d",i,tonumber(v)))
-        else
-            table.insert(values, string.format("%s=%s",i, ngx.quote_sql_str(v)))
-        end
-    end
-
-    if #values < 1 then
-        return
-    end
-
-    local stmt = string.format("select * from tb_name where %s;", table.concat(values," and "))
-    ngx.log(ngx.DEBUG, stmt)
-    local res, err, errcode, sqlstate = self.db:query(stmt)
-    if not res then
-        ngx.log(ngx.ERR,string.format("%s:%s",errcode, err))
-        return
-    end
     local resp = res
+
+    while err == "again" do
+        res, err, errcode, sqlstate = self.db:query(stmt)
+        if not res then
+            ngx.log(ngx.ERR,string.format("%s:%s",errcode, err))
+            return
+        end
+        tablex.move(resp, res)
+    end
+
     ngx.log(ngx.DEBUG, "resp:", resp)
     return resp
 end
