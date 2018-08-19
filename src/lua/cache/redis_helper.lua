@@ -3,12 +3,11 @@
 -- desc:缓存
 local cjson = require("cjson.safe")
 local redis = require("resty.redis")
+local class = require("pl.class")
 
-local export = {}
-local mt = {__index = export}
+local export = class()
 
-
-function export.new(redis_cfg)
+function export:_init(redis_cfg)
     local red, err = redis:new()
     if not red then
         ngx.log(ngx.ERR,"failed to instantiate redsi: ", err)
@@ -30,7 +29,7 @@ function export.new(redis_cfg)
 
     ngx.log(ngx.DEBUG,"connected to redis.")
 
-    return setmetatable({red=red},mt)
+    self.red = red
 end
 
 function export.close(self)

@@ -3,10 +3,11 @@
 -- desc:mysql辅助函数
 
 local cjson = require("cjson.safe")
+local class = require("pl.class")
+
 local mysql_helper = require("database.mysql_helper")
 
-local export = {}
-local mt = {__index = mysql_helper}
+local export = class(mysql_helper)
 
 -- 下面自行编写业务代码
 function export.get_db_version(self)

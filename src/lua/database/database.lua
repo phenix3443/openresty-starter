@@ -3,19 +3,19 @@
 -- desc:数据库接口
 local cjson = require("cjson.safe")
 
-local main_db_cfg = require("config/main_db")
-local MainDB = require("database/main_db")
+local example_db_cfg = require("config/example_db")
+local ExampleDB = require("database/example_db")
 
 local export = {}
 
--- main_db
-function export.get_main_db_version()
-    local main_db = MainDB.new(main_db_cfg.connect_info)
-    if not main_db then
+-- example_db
+function export.get_example_db_version()
+    local example_db = ExampleDB(example_db_cfg.connect_info)
+    if not example_db then
         return
     end
-    local version = main_db:get_db_version()
-    main_db:close()
+    local version = example_db:get_db_version()
+    example_db:close()
     return version
 end
 

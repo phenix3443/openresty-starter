@@ -5,11 +5,11 @@
 local cjson = require("cjson.safe")
 local mysql = require("resty.mysql")
 local tablex = require("pl.tablex")
+local class = require("pl.class")
 
-local export = {}
-local mt = {__index = export}
+local export = class()
 
-function export.new(db_cfg)
+function export:_init(db_cfg)
     local db, err = mysql:new()
     if not db then
         ngx.log(ngx.ERR,"failed to instantiate mysql: ", err)
@@ -25,7 +25,7 @@ function export.new(db_cfg)
 
     ngx.log(ngx.DEBUG,"connected to mysql.")
 
-    return setmetatable({db=db},mt)
+    self.db = db
 end
 
 function export.close(self)
