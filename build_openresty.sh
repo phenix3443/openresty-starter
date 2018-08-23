@@ -15,20 +15,25 @@ UNZIP_DIR=openresty-1.13.6.2
 function do_compile {
     RELEASE=$(lsb_release -is)
     if [ ${RELEASE} == 'LinuxMint' -o ${RELEASE} == 'Ubuntu' ]; then
-        sudo apt-get install libpcre3-dev libssl-dev perl make build-essential curl
+        sudo apt-get install libpcre3-dev libssl-dev perl make build-essential curl zlib1g-dev
     elif [ ${RELEASE} == 'CentOS' ]; then
-        sudo yum install -y pcre-devel openssl-devel gcc curl
+        sudo yum install -y pcre-devel openssl-devel gcc curl zlib-devel
     else
         exit 1
     fi
-    wget ${DOWNLOAD_URL} && tar xzf ${ZIPFILE} && cd ${UNZIP_DIR} && ./configure --prefix=${COMPILED_DIR} && make -j4 && make install && rm -fr ${UNZIP_DIR} ${ZIPFILE}
+
+    if [ ! -f ${ZIPFILE} ];then
+        wget ${DOWNLOAD_URL}
+    fi
+
+    tar xzf ${ZIPFILE} && cd ${UNZIP_DIR} && ./configure --prefix=${COMPILED_DIR} && make -j4 && make install && rm -fr ${UNZIP_DIR} ${ZIPFILE}
 }
 
 
 if [ -e ${NGINX_BIN} ]; then
-    echo "已经编译过openresty"
+    echo '已经编译过openresty'
 else
-    echo "尚未编译过openresty"
+    echo '尚未编译过openresty'
     do_compile
-    echo "openresty编译完成"
+    echo 'openresty编译完成'
 fi
