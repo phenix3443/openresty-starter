@@ -43,7 +43,7 @@ end
 
 -- 获取客户端最合适的语言
 function export.get_favor_lang(accept_lang)
-    local favor = "en"
+    local favor
     local options = export.get_lang_options(accept_lang or "")
 
     if next(options) then
