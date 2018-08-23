@@ -20,8 +20,8 @@ local function main()
 
     -- ngx.say(dict:get(item))
 
-    local version = database.get_main_db_version()
-    ngx.say(version)
+    -- local version = database.get_main_db_version()
+    -- ngx.say(version)
 end
 
 main()

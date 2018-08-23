@@ -5,7 +5,6 @@
 local cjson = require("cjson.safe")
 
 local utils = require("utils.utils")
-local sign = require("utils.sign")
 
 local function check_method()
     return true
@@ -56,10 +55,7 @@ end
 local function check_body()
     ngx.req.read_body()
     local body = ngx.req.get_post_args()
-    if not (body and body["sign"]) then
-        ngx.log(ngx.ERR, "invalid body: ", body)
-        return
-    end
+
     ngx.log(ngx.DEBUG,"body:", cjson.encode(body))
 
     return true
