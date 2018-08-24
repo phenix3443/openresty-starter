@@ -26,7 +26,7 @@ function do_compile {
         wget ${DOWNLOAD_URL}
     fi
 
-    tar xzf ${ZIPFILE} && cd ${UNZIP_DIR} && ./configure --prefix=${COMPILED_DIR} && make -j4 && make install && rm -fr ${UNZIP_DIR} ${ZIPFILE}
+    tar xzf ${ZIPFILE} && cd ${UNZIP_DIR} && ./configure --prefix=${COMPILED_DIR} && make -j4 && make install && cd .. && rm -fr ${UNZIP_DIR} ${ZIPFILE}
 }
 
 
