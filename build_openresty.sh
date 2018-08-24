@@ -5,12 +5,13 @@
 
 SCRIPT_DIR=$(cd $(dirname $0);pwd)
 PROJECT_DIR=${SCRIPT_DIR}
-COMPILED_DIR=${PROJECT_DIR}/openresty/
-NGINX_BIN=${COMPILED_DIR}/nginx/sbin/nginx
 
-DOWNLOAD_URL="https://openresty.org/download/openresty-1.13.6.2.tar.gz"
-ZIPFILE=openresty-1.13.6.2.tar.gz
-UNZIP_DIR=openresty-1.13.6.2
+INSTALL_DIR=$1                  # 项目安装目录
+NGINX_BIN=${INSTALL_DIR}/nginx/sbin/nginx
+
+OPENRESTY=openresty-1.13.6.2
+DOWNLOAD_URL="https://openresty.org/download/${OPENRESTY}.tar.gz"
+DOWNLOAD_FILE=${OPENRESTY}.tar.gz
 
 function do_compile {
     RELEASE=$(lsb_release -is)
@@ -22,11 +23,11 @@ function do_compile {
         exit 1
     fi
 
-    if [ ! -f ${ZIPFILE} ];then
+    if [ ! -f ${DOWNLOAD_FILE} ]; then
         wget ${DOWNLOAD_URL}
     fi
 
-    tar xzf ${ZIPFILE} && cd ${UNZIP_DIR} && ./configure --prefix=${COMPILED_DIR} && make -j4 && make install && cd .. && rm -fr ${UNZIP_DIR} ${ZIPFILE}
+    tar xzf ${DOWNLOAD_FILE} && cd ${OPENRESTY} && ./configure --prefix=${INSTALL_DIR} && make -j4 && make install && cd .. && rm -fr ${OPENRESTY} ${DOWNLOAD_FILE}
 }
 
 
