@@ -15,9 +15,9 @@ UNZIP_DIR=openresty-1.13.6.2
 function do_compile {
     RELEASE=$(lsb_release -is)
     if [ ${RELEASE} == 'LinuxMint' -o ${RELEASE} == 'Ubuntu' ]; then
-        apt install libpcre3-dev libssl-dev perl make build-essential curl zlib1g-dev liblua5.1-0-dev
+        apt install libpcre3-dev libssl-dev perl make build-essential curl zlib1g-dev liblua5.1-0-dev luarocks
     elif [ ${RELEASE} == 'CentOS' ]; then
-        yum install -y pcre-devel openssl-devel gcc curl zlib-devel lua-devel
+        yum install -y pcre-devel openssl-devel gcc curl zlib-devel lua-devel luarocks
     else
         exit 1
     fi
