@@ -14,11 +14,21 @@ function export:_init(redis_cfg)
         return
     end
 
-    local ok, err = red:connect(redis_cfg.host, redis_cfg.port)
+    local ok
+
+    ok, err = red:connect(redis_cfg.host, redis_cfg.port)
 
     if not ok then
         ngx.log(ngx.ERR,"failed to connect: ", err)
         return
+    end
+
+    if redis_cfg.password then
+        ok, err = red:auth(redis_cfg.password)
+        if not ok then
+            ngx.log(ngx.ERR,"failed to auth: ", err)
+            return
+        end
     end
 
     ok, err = red:select(redis_cfg.database)
