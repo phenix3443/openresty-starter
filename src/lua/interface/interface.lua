@@ -5,8 +5,8 @@
 local cjson = require("cjson.safe")
 local cookie = require("resty.cookie")
 
-local cfg = require("config.config")
-local upstream_cfg = require("config.upstream")
+local cfg = require("conf.config")
+local upstream_cfg = require("conf.upstream")
 
 local database = require("database.database")
 local cache = require("cache.cache")
