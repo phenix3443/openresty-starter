@@ -3,11 +3,12 @@
 
 import os
 import sys
-import time
 import logging
 
 SCRIPT_PATH = os.path.split(os.path.realpath(__file__))[0]
 PROJECT_PATH = os.path.normpath("{}/..".format(SCRIPT_PATH))
+
+sys.path.insert(0, os.path.join(PROJECT_PATH, "test/"))
 
 LOGGERS = []
 
