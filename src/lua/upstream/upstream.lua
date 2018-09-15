@@ -1,19 +1,19 @@
 -- -*- coding:utf-8 -*-
--- author:liushangliang@xunlei.com
--- desc:对外接口代码示例
+--- 对外接口代码示例
+-- @author:liushangliang@xunlei.com
 
 local cjson = require("cjson.safe")
 local http = require("resty.http")
 
-local export = {}
-local mt = {__index = export}
+local M = {}
+local mt = {__index = M}
 
-function export.new(cfg)
+function M.new(cfg)
     local httpc = http.new()
     local ok, err = httpc:connect(cfg.host, cfg.port)
 
     if not ok then
-        ngx.log(ngx.ERR,"failed to connect: ", err)
+        ngx.log(ngx.ERR,"failed to connect ", cfg.name, "err:",err)
         return
     end
 
@@ -22,7 +22,7 @@ function export.new(cfg)
     return setmetatable({httpc=httpc}, mt)
 end
 
-function export.close(self)
+function M.close(self)
     local ok, err = self.httpc:set_keepalive(10000, 100)
     if not ok then
         ngx.log(ngx.ERR, "failed to set keepalive: ", err)
@@ -30,7 +30,7 @@ function export.close(self)
     end
 end
 
-function export.send(self, req)
+function M.send(self, req)
     ngx.log(ngx.DEBUG, "req:", cjson.encode(req))
     local res, err = self.httpc:request(req)
     if not res then
@@ -56,7 +56,7 @@ function export.send(self, req)
 end
 
 -- 添加业务代码
-function export.interface(self, args)
+function M.interface(self, args)
     local req = {
         method = "POST",
         path = "/path",
@@ -66,8 +66,8 @@ function export.interface(self, args)
         body = ""
     }
 
-    local resp = export.send(self, req)
+    local resp = M.send(self, req)
     return resp
 end
 
-return export
+return M

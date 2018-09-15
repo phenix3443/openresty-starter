@@ -1,3 +1,3 @@
 -- -*- coding:utf-8 -*-
--- author:liushangliang@xunlei.com
--- desc:监控接口
+--- 监控接口
+-- @author:liushangliang@xunlei.com

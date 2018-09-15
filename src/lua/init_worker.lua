@@ -1,3 +1,3 @@
 -- -*- coding:utf-8 -*-
--- author:liushangliang@xunlei.com
--- desc: 被init_work_by_lua_file调用，主要用来设定worker的定时器
+--- 被init_work_by_lua_file调用，主要用来设定worker的定时器
+-- @author:liushangliang@xunlei.com

@@ -1,15 +1,15 @@
 -- -*- coding:utf-8 -*-
--- author:liushangliang@xunlei.com
--- desc:通用工具函数
+--- 通用工具函数
+-- @author:liushangliang@xunlei.com
 
 local cjson = require("cjson.safe")
 local tablex = require("pl.tablex")
 
 local err_cfg = require("conf.err")
 
-local export = {}
+local M = {}
 
-function export.concat_k_v(t, pos)
+function M.concat_k_v(t, pos)
     local f = function(k,v) return string.format("%s=%s", k, v) end
     local t = tablex.pairmap(f, t)
     local str = table.concat(t, pos)
@@ -17,7 +17,7 @@ function export.concat_k_v(t, pos)
     return str
 end
 
-function export.send_resp(err, data)
+function M.send_resp(err, data)
     local resp  = {
         iRet = err_cfg.code[err],
         sMsg = err_cfg.msg[err],
@@ -32,4 +32,4 @@ function export.send_resp(err, data)
 end
 
 
-return export
+return M

@@ -1,13 +1,14 @@
 -- -*- coding:utf-8 -*-
--- author:liushangliang@xunlei.com
--- desc:缓存
+--- redis辅助
+-- @author:liushangliang@xunlei.com
+
 local cjson = require("cjson.safe")
 local redis = require("resty.redis")
 local class = require("pl.class")
 
-local export = class()
+local M = class()
 
-function export:_init(redis_cfg)
+function M:_init(redis_cfg)
     local red, err = redis:new()
     if not red then
         ngx.log(ngx.ERR,"failed to instantiate redsi: ", err)
@@ -42,7 +43,7 @@ function export:_init(redis_cfg)
     self.red = red
 end
 
-function export.close(self)
+function M.close(self)
     local ok, err = self.red:set_keepalive(10000, 100)
     if not ok then
         ngx.log(ngx.ERR, "failed to set keepalive: ", err)
@@ -50,4 +51,4 @@ function export.close(self)
     end
 end
 
-return export
+return M

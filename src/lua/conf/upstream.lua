@@ -1,12 +1,13 @@
 -- -*- coding:utf-8 -*-
--- author:liushangliang@xunlei.com
--- desc: 上游服务配置
+---上游服务配置
+-- @author:liushangliang@xunlei.com
 
-local export = {}
+local M = {}
 
-export.upstream = {
-    host = "account-pre.onethingpcs.com",
+M.upstream = {
+    name = "localhost",
+    host = "localhost",
     port = 80
 }
 
-return export
+return M

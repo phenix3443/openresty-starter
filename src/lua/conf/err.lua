@@ -1,17 +1,18 @@
 -- -*- coding:utf-8 -*-
--- author:liushangliang@xunlei.com
--- desc:错误码配置
+--- 错误码配置
+-- @author:liushangliang@xunlei.com
 
-local export = {}
 
-export.code = {
+local M = {}
+
+M.code = {
     ["OK"] = 0,
-    ["PARAM_ERR"] = 1,
+    ["ERR_PARAM"] = 1,
 }
 
-export.msg = {
+M.msg = {
     ["OK"] = "ok",
-    ["PARAM_ERR"] = "参数错误",
+    ["ERR_PARAM"] = "参数错误",
 }
 
-return export
+return M

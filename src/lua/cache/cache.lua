@@ -1,14 +1,15 @@
 -- -*- coding:utf-8 -*-
--- author:liushangliang@xunlei.com
--- desc:数据库接口
+--- 缓存接口，主要组合redis相关请求
+-- @author:liushangliang@xunlei.com
+
 local cjson = require("cjson.safe")
 
 local mcc = require("config/example_cache") -- example_cache_cfg
 local ExampleCache = require("cache/example_cache")
 
-local export = {}
+local M = {}
 
-function export.get_example_cache_info()
+function M.get_example_cache_info()
     local example_cache = ExampleCache(mcc.connect_info)
     if not example_cache then
         return
@@ -19,4 +20,4 @@ function export.get_example_cache_info()
     return ok
 end
 
-return export
+return M

@@ -1,6 +1,6 @@
 -- -*- coding:utf-8 -*-
--- author:liushangliang@xunlei.com
--- file: 接口统计代码
+--- 接口统计代码
+-- @author:liushangliang@xunlei.com
 
 local falcon_config = require ("config/falcon")
 local falcon = require ("falcon/falcon")

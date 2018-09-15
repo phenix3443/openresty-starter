@@ -1,13 +1,13 @@
 -- -*- coding:utf-8; -*-
--- author:liushangliang
--- desc:
+--- falcon接口
+-- @author:liushangliang
 -- doc: http://book.open-falcon.org/zh_0_2/usage/data-push.html
 
 local cjson = require("cjson.safe")
 local stringx = require("pl.stringx")
 local falcon_cfg = require("config/falcon")
 
-local export = {}
+local M = {}
 
 local function get_host_name()
     local f = io.popen ("/bin/hostname")
@@ -37,7 +37,7 @@ local function check_metric_handler(metric, handler)
     return true
 end
 
-function export.get_metric_handler(metric)
+function M.get_metric_handler(metric)
     local handler = falcon_cfg.metric_handlers[metric]
     if not handler then
         ngx.log(ngx.ERR, "can not find handler for ", metric)
@@ -60,13 +60,13 @@ local function get_metric_from_shm_key(shm_key)
 end
 
 -- 修改shm_name对应的值
-function export.store_stat_record(shm_name, shm_key, value)
+function M.store_stat_record(shm_name, shm_key, value)
     local metric = get_metric_from_shm_key(shm_key)
     if not metric then
         return
     end
 
-    local handler = export.get_metric_handler(metric)
+    local handler = M.get_metric_handler(metric)
     if not handler then
         return
     end
@@ -81,7 +81,7 @@ local function parse_shm_key(shm_key)
         return
     end
 
-    local handler = export.get_metric_handler(metric)
+    local handler = M.get_metric_handler(metric)
     if not handler then
         return
     end
@@ -105,7 +105,7 @@ end
 local host_name = get_host_name()
 
 -- 生成shm_key对应的falcon item
-function export.gen_item(shm_key, value)
+function M.gen_item(shm_key, value)
     local metric, counter_type, tags= parse_shm_key(shm_key)
     if not metric then
         return
@@ -133,14 +133,14 @@ function export.gen_item(shm_key, value)
 end
 
 -- 从shm_dict生成此次上报的payload
-function export.gen_payload_from_shm(shm_name)
+function M.gen_payload_from_shm(shm_name)
     local payload = {}
     local dict = ngx.shared[shm_name]
     local keys = dict:get_keys()
     ngx.log(ngx.DEBUG,"all shm keys:", cjson.encode(keys))
     for i,key in pairs(keys) do
         local value = dict:get(key)
-        local item = export.gen_item(key, value)
+        local item = M.gen_item(key, value)
         if item then
             table.insert(payload, item)
         end
@@ -150,7 +150,7 @@ function export.gen_payload_from_shm(shm_name)
 end
 
 -- 将payload上报falcon
-function export.report(payload)
+function M.report(payload)
     local resp = ngx.location.capture("/falcon/v1/push",
                                       {
                                           method = ngx.HTTP_POST,
@@ -175,4 +175,4 @@ end
 
 init()
 
-return export
+return M

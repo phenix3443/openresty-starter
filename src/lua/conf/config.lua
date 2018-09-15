@@ -1,7 +1,8 @@
 -- -*- coding:utf-8 -*-
--- author:liushangliang@xunlei.com
--- desc: 项目配置文件
+--- 公共配置文件
+-- @author:liushangliang@xunlei.com
 
-local export = {}
 
-return export
+local M = {}
+
+return M
