@@ -3,34 +3,13 @@
 -- @author:liushangliang@xunlei.com
 
 local cjson = require("cjson.safe")
-local http = require("resty.http")
+local class = require("pl.class")
 
-local M = {}
-local mt = {__index = M}
+local http_helper = require("upstream.http_helper")
 
-function M.new(cfg)
-    local httpc = http.new()
-    local ok, err = httpc:connect(cfg.host, cfg.port)
+local M = class(http_helper)
 
-    if not ok then
-        ngx.log(ngx.ERR,"failed to connect ", cfg.name, "err:",err)
-        return
-    end
-
-    ngx.log(ngx.DEBUG,"connected to http server.")
-
-    return setmetatable({httpc=httpc}, mt)
-end
-
-function M.close(self)
-    local ok, err = self.httpc:set_keepalive(10000, 100)
-    if not ok then
-        ngx.log(ngx.ERR, "failed to set keepalive: ", err)
-        return
-    end
-end
-
-function M.send(self, req)
+function M:send(req)
     ngx.log(ngx.DEBUG, "req:", cjson.encode(req))
     local res, err = self.httpc:request(req)
     if not res then
@@ -56,7 +35,7 @@ function M.send(self, req)
 end
 
 -- 添加业务代码
-function M.interface(self, args)
+function M:test()
     local req = {
         method = "POST",
         path = "/path",
@@ -66,7 +45,8 @@ function M.interface(self, args)
         body = ""
     }
 
-    local resp = M.send(self, req)
+    local resp = M:send(req)
+
     return resp
 end
 
