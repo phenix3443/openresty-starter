@@ -10,7 +10,6 @@ import config
 import dev_env as env
 # import pre_env as env
 # import online_env as env
-import xllog
 
 import example_server
 
@@ -28,7 +27,4 @@ class TestExampleServer(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    config.add_logger(logger)
-    xllog.init_logger(config.LOGGERS)
-
     unittest.main()
