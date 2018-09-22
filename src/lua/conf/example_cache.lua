@@ -2,7 +2,17 @@
 -- 示例cache 配置
 -- @author:liushangliang@xunlei.com
 
+local rt = require("conf/runtime")
+
 local M = {}
+
+if rt.mode == "develop" then
+
+elseif rt.mode == "pre-release" then
+
+elseif rt.mode == "release" then
+
+end
 
 M.connect_info = {
     host = "127.0.0.1",
