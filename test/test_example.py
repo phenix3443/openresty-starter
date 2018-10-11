@@ -13,12 +13,14 @@ import dev_env as env
 
 import example_server
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger("test_example")  # 这里不要使用"__main__"
 
 
 class TestExampleServer(unittest.TestCase):
+    es = example_server.ExampleServer(env.HOST)
+
     def setUp(self):
-        self.es = example_server.ExampleServer(env.HOST)
+        pass
 
     def test_test(self):
         """测试test接口"""
