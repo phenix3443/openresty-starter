@@ -9,15 +9,18 @@ local class = require("pl.class")
 local M = class()
 
 function M:_init(cfg)
+    self.host = cfg.host
+
     local httpc = http.new()
-    local ok, err = httpc:connect(cfg.host, cfg.port)
+    local ok, err = httpc:connect(cfg.ip, cfg.port)
 
     if not ok then
-        ngx.log(ngx.ERR, "connect ", cfg.name, " failed, ", err)
+        ngx.log(ngx.ERR, "connect ", cfg.host, " failed, ", err)
         return
     end
 
-    ngx.log(ngx.DEBUG, "connect ", cfg.name, " successful")
+    ngx.log(ngx.DEBUG, "connect ", cfg.host, " successful")
+
 
     self.httpc = httpc
 end

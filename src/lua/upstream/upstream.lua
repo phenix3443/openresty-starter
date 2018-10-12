@@ -41,6 +41,7 @@ function M:test()
         path = "/path",
         headers = {
             ["Content-Type"] = "application/json",
+            ["Host"] = self.host,
         },
         body = ""
     }
