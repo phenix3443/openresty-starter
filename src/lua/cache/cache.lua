@@ -4,8 +4,8 @@
 
 local cjson = require("cjson.safe")
 
-local mcc = require("config/example_cache") -- example_cache_cfg
-local ExampleCache = require("cache/example_cache")
+local mcc = require("conf.example_cache") -- example_cache_cfg
+local ExampleCache = require("cache.example_cache")
 
 local M = {}
 

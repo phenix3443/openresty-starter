@@ -3,8 +3,8 @@
 -- @author:liushangliang
 -- doc:
 local cjson = require("cjson.safe")
-local falcon = require("falcon/falcon")
-local database = require("database/database")
+local falcon = require("falcon.falcon")
+local database = require("database.database")
 local function main()
     -- local dict = ngx.shared["xl_lixian_download_vip_interface_server"]
     -- dict:flush_all()

@@ -2,8 +2,8 @@
 --- 接口统计代码
 -- @author:liushangliang@xunlei.com
 
-local falcon_config = require ("config/falcon")
-local falcon = require ("falcon/falcon")
+local falcon_config = require ("config.falcon")
+local falcon = require ("falcon.falcon")
 
 -- 将shm_dict中的数据上报falcon
 local function interface_static_for_falcon()

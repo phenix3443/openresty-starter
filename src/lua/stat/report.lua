@@ -3,8 +3,8 @@
 -- @author:liushangliang@xunlei.com
 
 local cjson = require("cjson.safe")
-local falcon_config = require ("config/falcon")
-local falcon = require ("falcon/falcon")
+local falcon_config = require ("config.falcon")
+local falcon = require ("falcon.falcon")
 
 -- 将shm_dict中的数据上报falcon
 local function report()

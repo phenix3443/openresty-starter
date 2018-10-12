@@ -5,7 +5,7 @@
 
 local cjson = require("cjson.safe")
 local stringx = require("pl.stringx")
-local falcon_cfg = require("config/falcon")
+local falcon_cfg = require("config.falcon")
 
 local M = {}
 

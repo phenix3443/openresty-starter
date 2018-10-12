@@ -3,8 +3,8 @@
 -- desc:数据库接口
 local cjson = require("cjson.safe")
 
-local example_db_cfg = require("config/example_db")
-local ExampleDB = require("database/example_db")
+local example_db_cfg = require("conf.example_db")
+local ExampleDB = require("database.example_db")
 
 local export = {}
 
