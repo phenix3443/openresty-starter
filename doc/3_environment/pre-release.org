@@ -12,13 +12,18 @@
   |      | server |
   |------+--------|
   | Host |        |
-  | Port |    80  |
+  | Port |     80 |
   | Dir  |        |
 
 * 依赖说明
   | server | IP | Port |
   |--------+----+------|
   |        |    |      |
+
+* 本地 host 设置
+  #+BEGIN_EXAMPLE
+
+  #+END_EXAMPLE
 
 * 数据库
 ** mysql

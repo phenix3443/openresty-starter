@@ -21,6 +21,11 @@
   |--------+----+------|
   |        |    |      |
 
+* 本地 host 设置
+  #+BEGIN_EXAMPLE
+
+  #+END_EXAMPLE
+
 * 数据库
 ** mysql
    #+BEGIN_SRC sh
