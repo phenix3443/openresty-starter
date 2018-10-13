@@ -32,9 +32,9 @@ function do_compile {
 
 
 if [ -e ${NGINX_BIN} ]; then
-    echo '已经编译过openresty'
+    echo "已经编译过openresty"
 else
-    echo '尚未编译过openresty'
+    echo "尚未编译过openresty"
     do_compile
-    echo 'openresty编译完成'
+    echo "openresty编译完成"
 fi
