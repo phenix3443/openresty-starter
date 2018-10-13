@@ -2,12 +2,7 @@
 # author:phenix3443+github@gmail.com
 # desc: openresty 项目打包脚本
 
-install(
-  # 编译后的openresty目录
-  DIRECTORY openresty/
-  DESTINATION ./
-  USE_SOURCE_PERMISSIONS
-  )
+install(CODE "execute_process(COMMAND ${PROJECT_SOURCE_DIR}/build_openresty.sh $CMAKE_INSTALL_PREFIX)")
 
 install(
   # 存放程序运行控制脚本，start,stop,resetart,monitor等

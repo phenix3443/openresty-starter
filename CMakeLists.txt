@@ -4,9 +4,6 @@
 cmake_minimum_required(VERSION 3.0)
 project(project_name VERSION 0.0.0.1) #应该修改此处的project-name和对应的版本号
 
-# build section
-execute_process(COMMAND ${PROJECT_SOURCE_DIR}/build_openresty.sh)
-
 # install section
 include(install.cmake)
 set(CPACK_PACKAGE_VERSION ${PROJECT_VERSION})
