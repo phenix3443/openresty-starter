@@ -1,8 +1,4 @@
 # -*- coding:utf-8-*-
-#+TITLE: 说明
-#+AUTHOR: liushangliang
-#+EMAIL: phenix3443+github@gmail.com
-
 [[https://travis-ci.org/phenix3443/openresty-delvelop-frame.svg?branch=master]]
 
 * 概述
