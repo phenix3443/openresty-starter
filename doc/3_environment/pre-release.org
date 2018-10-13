@@ -16,9 +16,10 @@
   | Dir  |        |
 
 * 依赖说明
-  | server | IP | Port |
-  |--------+----+------|
-  |        |    |      |
+  |      | server |
+  |------+--------|
+  | Host |        |
+  | Port |     80 |
 
 * 本地 host 设置
   #+BEGIN_EXAMPLE
