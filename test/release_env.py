@@ -2,4 +2,4 @@
 # author:phenix3443+github@gmail.com
 # 预发布环境配置
 
-ENV = "dev"
+ENV = "release"
