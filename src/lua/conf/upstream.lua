@@ -8,20 +8,20 @@ local M = {}
 
 if rt.mode == "develop" then
     M.upstream = {
-        host = "domain-name",
-        ip = "develop-ip",
+        host = "",
+        ip = "",
         port = 80
     }
 elseif rt.mode == "pre-release" then
     M.upstream = {
-        host = "domain-name",
-        ip = "pre-release-ip",
+        host = "",
+        ip = "",
         port = 80
     }
 elseif rt.mode == "release" then
     M.upstream = {
-        host = "domain-name",
-        ip = "release-ip",
+        host = "",
+        ip = "",
         port = 80
     }
 end

@@ -7,17 +7,28 @@ local rt = require("conf.runtime")
 local M = {}
 
 if rt.mode == "develop" then
-
+    M.connect_info = {
+        host = "127.0.0.1",
+        port = 6379,
+        database = 0,
+        password = nil
+    }
 elseif rt.mode == "pre-release" then
-
+    M.connect_info = {
+        host = "127.0.0.1",
+        port = 6379,
+        database = 0,
+        password = nil
+    }
 elseif rt.mode == "release" then
-
+    M.connect_info = {
+        host = "127.0.0.1",
+        port = 6379,
+        database = 0,
+        password = nil
+    }
 end
 
-M.connect_info = {
-    host = "127.0.0.1",
-    port = 6380,
-    database = 2,
-}
+
 
 return M

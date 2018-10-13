@@ -1,6 +1,7 @@
 -- -*- coding:utf-8 -*-
--- author:phenix3443+github@gmail.com
--- desc:对外接口代码示例
+-- 对外接口代码示例
+-- @author:phenix3443+github@gmail.com
+
 
 local cjson = require("cjson.safe")
 local cookie = require("resty.cookie")
@@ -56,7 +57,7 @@ local function get_req()
     return req
 end
 
-local function get_resp()
+local function get_resp(req)
     local resp = {}
 
     ngx.log(ngx.INFO, "resp: ", cjson.encode(resp))
@@ -68,5 +69,7 @@ local function main()
     if not req then
     end
 
-    local resp = get_resp()
+    local resp = get_resp(req)
 end
+
+main()

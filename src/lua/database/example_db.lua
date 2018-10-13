@@ -1,17 +1,16 @@
 -- -*- coding:utf-8 -*-
--- author:phenix3443+github@gmail.com
--- desc:mysql辅助函数
+-- 示例数据库
+-- @author:phenix3443+github@gmail.com
 
 local cjson = require("cjson.safe")
 local class = require("pl.class")
 
 local mysql_helper = require("database.mysql_helper")
 
-local export = class(mysql_helper)
+local M = class(mysql_helper)
 
--- 下面自行编写业务代码
-function export.get_db_version(self)
-    -- 查询用户下载信息
+-- 查询数据库版本信息
+function M:get_mysql_version()
     local stmt = string.format("select version() as version;")
     ngx.log(ngx.DEBUG, stmt)
     local res, err, errcode, sqlstate = self.db:query(stmt)
@@ -24,4 +23,6 @@ function export.get_db_version(self)
     return resp
 end
 
-return export
+-- 下面自行编写业务代码 -------------------------------------------------------
+
+return M

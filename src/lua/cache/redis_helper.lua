@@ -16,7 +16,6 @@ function M:_init(redis_cfg)
     end
 
     local ok
-
     ok, err = red:connect(redis_cfg.host, redis_cfg.port)
 
     if not ok then
@@ -43,7 +42,7 @@ function M:_init(redis_cfg)
     self.red = red
 end
 
-function M.close(self)
+function M:close()
     local ok, err = self.red:set_keepalive(10000, 100)
     if not ok then
         ngx.log(ngx.ERR, "failed to set keepalive: ", err)

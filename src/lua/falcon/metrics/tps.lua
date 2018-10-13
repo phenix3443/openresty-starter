@@ -1,6 +1,6 @@
 -- -*- coding:utf-8; -*-
 --- tps(task per second) shm key module
--- @author:liushangliang
+-- @author:phenix3443+github@gmail.com
 
 local stringx = require("pl.stringx")
 

@@ -21,7 +21,6 @@ function M:_init(cfg)
 
     ngx.log(ngx.DEBUG, "connect ", cfg.host, " successful")
 
-
     self.httpc = httpc
 end
 

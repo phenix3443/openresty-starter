@@ -4,6 +4,6 @@
 
 local M = {}
 
-M.mode = "pre-release"                -- 当前运行环境：debug/pre-release/release
+M.mode = "develop"                -- 当前运行环境：develop/pre-release/release
 
 return M

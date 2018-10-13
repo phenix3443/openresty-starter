@@ -1,6 +1,6 @@
 -- -*- coding:utf-8; -*-
 --- 测试接口
--- @author:liushangliang
+-- @author:phenix3443+github@gmail.com
 -- doc:
 local cjson = require("cjson.safe")
 local falcon = require("falcon.falcon")

@@ -1,6 +1,6 @@
 -- -*- coding:utf-8 -*-
---- 对外接口代码示例
--- @author:phenix3443+github@gmail.com
+--- 账号服务接口
+-- @author:liushangliang@xunlei.com
 
 local cjson = require("cjson.safe")
 local class = require("pl.class")
@@ -25,30 +25,21 @@ function M:send(req)
     local body = res:read_body()
     ngx.log(ngx.DEBUG, "resp body:", body)
 
-    local data = cjson.decode(body)
-    if not data then
-        ngx.log(ngx.WARN, "resp data json decode error")
-        return
-    end
-
-    return data
+    return body
 end
 
--- 添加业务代码
-function M:test()
+-- 将payload上报falcon
+function M:report(payload)
     local req = {
         method = "POST",
-        path = "/path",
-        headers = {
-            ["Content-Type"] = "application/json",
-            ["Host"] = self.host,
-        },
-        body = ""
+        path = "/v1/push",
+        body = cjson.encode(payload)
     }
 
     local resp = self:send(req)
 
     return resp
 end
+
 
 return M

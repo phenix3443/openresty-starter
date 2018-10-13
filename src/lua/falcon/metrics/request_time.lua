@@ -1,6 +1,6 @@
 -- -*- coding:utf-8; -*-
 --- http request_time parser
--- @author:liushangliang
+-- @author:phenix3443+github@gmail.com
 
 local stringx = require("pl.stringx")
 
@@ -21,8 +21,8 @@ function M.gen_shm_key()
 end
 
 -- 修改shm_key对应的value，必备
-function M.change_value(shm_name, shm_key, value)
-    local dict = ngx.shared[shm_name]
+function M.change_value(shm_key, value)
+    local dict = ngx.shared["falcon"]
     if ngx.config.ngx_lua_version < 10006 then
         ngx.log(ngx.ERR, "ngx_lua_version too low")
     else
@@ -36,12 +36,17 @@ end
 function M.get_falcon_info(shm_key)
     local counter_type = "COUNTER"
     local arr = stringx.split(shm_key,":")
+    if #arr < 1 then
+        ngx.log(ngx.ERR, "invalid shm_key,", shm_key)
+        return
+    end
+    local metric = arr[1]
     local tags = {
         domain = ngx.var.server_name,
         url = ngx.unescape_uri(arr[2]),
         cost = tonumber(arr[3])
     }
-    return counter_type, tags
+    return metric, counter_type, tags
 end
 
 return M
