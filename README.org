@@ -4,19 +4,54 @@
 #+EMAIL: phenix3443+github@gmail.com
 
 * 概述
+  该项目将工作中使用 openresty 开发经验抽象为一个开发框架，封装了一些开发，测试脚本。
 
-* 修改
-  1. 修改 src/conf/project.cron 中<project-install-path>为项目安装路径。
+* 相关技术
 
-  2. 修改 src/conf/project.proxy.nginx.conf 中标明的字段。
+** operesty
 
-  3. 修改 src/conf/vhosts/project.nginx.conf 中标明的字段。
+** lua
+   使用 lua 作为开发语言。
 
-  4. 修改 src/sbin/ngx.sh 中标明的字段。
+*** luarocks
+    使用 luarocks 安装相关的依赖库。
 
-  5. 修改 src/sbin/report_falcon.sh 中标明的字段。
+*** penlight
+    使用 penlight 库中的 class，tablex 等库开发。
 
-  6. 在前端代理中添加：
-     #+BEGIN_SRC nginx
-include <path-to-project.proxy.nginx.conf>;
-     #+END_SRC
+*** lua-cjson
+    json 处理工具，多用于请求和响应的返回，日志序列化。
+
+*** version
+    作为接口协议版本号的比较。
+
+*** luaunit
+    lua 代码单元测试。
+
+*** lua-resty-http
+    访问外部的 http 服务。
+
+*** luadoc
+    生成 lua 代码文档。
+
+** python3
+   多用于执行测试脚本，定时任务等。
+
+*** pipenv
+    使用 pipenv 创建干净的 python 脚本执行环境。
+
+*** requests
+    发送 http 请求。
+
+*** concurrentloghandler
+    多进程日志记录工具。
+
+*** redis
+
+*** mysql-connector
+
+*** logging
+    python 标准日志库。
+
+*** unittest
+    python 标准测试框架。
