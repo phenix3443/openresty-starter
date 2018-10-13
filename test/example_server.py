@@ -1,6 +1,6 @@
 # -*- coding:utf-8-*-
-# author:liushangliang@xunlei.com
-# desc: 家庭共享服务借口
+# author:phenix3443@gmail.com
+# desc:服务接口
 # doc:
 import requests
 import logging
@@ -15,9 +15,8 @@ class ExampleServer:
     def __init__(self, host):
         self.host = host
         self.headers = {
-            # "Host": "project-domain",
+            "Host": "project-domain",
             "Accept-Language": "zh-Hans-CN;q=1, zh-Hant-CN;q=0.9, en-CN;q=0.8",
-            # "Accept-Language": "zh;",
         }
 
     def __del__(self):

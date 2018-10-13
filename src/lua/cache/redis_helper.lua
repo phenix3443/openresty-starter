@@ -1,6 +1,6 @@
 -- -*- coding:utf-8 -*-
 --- redis辅助
--- @author:liushangliang@xunlei.com
+-- @author:phenix3443@gmail.com
 
 local cjson = require("cjson.safe")
 local redis = require("resty.redis")

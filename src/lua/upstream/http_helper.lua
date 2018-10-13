@@ -1,6 +1,6 @@
 -- -*- coding:utf-8 -*-
 --- http接口封装示例
--- @author:liushangliang@xunlei.com
+-- @author:phenix3443@gmail.com
 
 local cjson = require("cjson.safe")
 local http = require("resty.http")

@@ -1,6 +1,6 @@
 -- -*- coding:utf-8 -*-
 --- 公共配置文件
--- @author:liushangliang@xunlei.com
+-- @author:phenix3443@gmail.com
 
 
 local M = {}

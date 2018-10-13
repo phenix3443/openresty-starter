@@ -1,6 +1,6 @@
 -- -*- coding:utf-8 -*-
 -- 示例cache 配置
--- @author:liushangliang@xunlei.com
+-- @author:phenix3443@gmail.com
 
 local rt = require("conf.runtime")
 

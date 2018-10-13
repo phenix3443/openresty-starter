@@ -1,6 +1,6 @@
 -- -*- coding:utf-8 -*-
 --- 错误码配置
--- @author:liushangliang@xunlei.com
+-- @author:phenix3443@gmail.com
 
 
 local M = {}

@@ -1,6 +1,6 @@
 -- -*- coding:utf-8 -*-
 --- 项目运行环境配置
--- @author:liushangliang@xunlei.com
+-- @author:phenix3443@gmail.com
 
 local M = {}
 

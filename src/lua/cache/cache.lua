@@ -1,6 +1,6 @@
 -- -*- coding:utf-8 -*-
 --- 缓存接口，主要组合redis相关请求
--- @author:liushangliang@xunlei.com
+-- @author:phenix3443@gmail.com
 
 local cjson = require("cjson.safe")
 

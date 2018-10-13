@@ -1,6 +1,6 @@
 -- -*- coding:utf-8 -*-
 --- 对外接口代码示例
--- @author:liushangliang@xunlei.com
+-- @author:phenix3443@gmail.com
 
 local cjson = require("cjson.safe")
 local class = require("pl.class")

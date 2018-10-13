@@ -1,5 +1,5 @@
 # -*- coding:utf-8-*-
-# author:liushangliang@xunlei.com
+# author:phenix3443@gmail.com
 # 预发布环境配置
 
 ENV = "pre-env"

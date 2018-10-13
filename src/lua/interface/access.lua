@@ -1,6 +1,6 @@
 -- -*- coding:utf-8 -*-
 -- desc:请求公共参数检查
--- @author:liushangliang@xunlei.com
+-- @author:phenix3443@gmail.com
 
 
 local cjson = require("cjson.safe")

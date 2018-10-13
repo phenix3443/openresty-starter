@@ -1,5 +1,5 @@
 -- -*- coding:utf-8 -*-
--- author:liushangliang@xunlei.com
+-- author:phenix3443@gmail.com
 -- desc:对外接口代码示例
 
 local cjson = require("cjson.safe")

@@ -1,6 +1,6 @@
 -- -*- coding:utf-8 -*-
 --- 接口统计代码
--- @author:liushangliang@xunlei.com
+-- @author:phenix3443@gmail.com
 
 local cjson = require("cjson.safe")
 local falcon_config = require ("config.falcon")

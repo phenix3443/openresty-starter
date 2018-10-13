@@ -1,6 +1,6 @@
 -- -*- coding:utf-8 -*-
 ---上游服务配置
--- @author:liushangliang@xunlei.com
+-- @author:phenix3443@gmail.com
 
 local rt = require("conf.runtime")
 

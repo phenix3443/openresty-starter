@@ -1,6 +1,6 @@
 # python3
 # -*- coding:utf-8 -*-
-# author:liushangliang@xunlei.com
+# author:phenix3443@gmail.com
 
 import os
 import sys
