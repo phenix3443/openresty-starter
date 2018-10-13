@@ -3,6 +3,8 @@
 #+AUTHOR: liushangliang
 #+EMAIL: phenix3443+github@gmail.com
 
+[[https://travis-ci.org/phenix3443/openresty-delvelop-frame.svg?branch=master]]
+
 * 概述
   工作中经常使用 openresty 开发项目，这里将开发经验做了一个总结，生成一个通用的开发框架，内容包括：
   + 工程组织结构。
