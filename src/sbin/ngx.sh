@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # -*-coding:utf-8-*-
-# author:phenix3443@gmail.com
+# author:phenix3443+github@gmail.com
 # description: nginx http server.
 # Settings Nginx
 SERVER_NAME="project_name"      # 此处需要修改为项目名

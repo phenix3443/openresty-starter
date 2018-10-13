@@ -1,6 +1,6 @@
 -- -*- coding:utf-8 -*-
 --- http头部语言相关
--- @author:phenix3443@gmail.com
+-- @author:phenix3443+github@gmail.com
 
 local cjson = require("cjson.safe")
 local tablex = require("pl.tablex")

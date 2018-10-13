@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # -*- coding:utf-8-*-
-# author:phenix3443@gmail.com
+# author:phenix3443+github@gmail.com
 # desc: 用来编译openresty
 
 SCRIPT_DIR=$(cd $(dirname $0);pwd)

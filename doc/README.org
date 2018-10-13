@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 #+title:docs 布局
 #+author:刘尚亮
-#+email:liushangliang@xunlei.com
+#+email:phenix3443+github@gmail.com
 
 该目录中的文件对应了该项目在 confluence 上面的记录，包括：
 + 项目说明（overview），主要说明项目作用，所属功能模块（高速，离线等），架构设计，数据库设计等。

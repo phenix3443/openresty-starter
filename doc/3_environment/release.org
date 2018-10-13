@@ -9,24 +9,33 @@
   说明当前生产环境的版本。
 
 * 部署
-  |      | ad_server | ad_material |
-  |------+-----------+-------------|
-  | LVS  |           |             |
-  | Host |           |             |
-  | Port |       443 |         443 |
-  | Dir  |           |             |
+  |      | server |
+  |------+--------|
+  | Host |        |
+  | Port |    80  |
+  | Dir  |        |
 
 * 依赖说明
-  此处是程序依赖在生产环境中的第三方服务依赖说明。
+  | server | IP | Port |
+  |--------+----+------|
+  |        |    |      |
 
 * 数据库
-  | Domain | Host |
-  |--------+------|
-  |        |      |
+
+** mysql
+   #+BEGIN_SRC sh
+mysql -h127.0.0.1 -uroot -p db_name
+   #+END_SRC
+
+** redis
+   #+BEGIN_SRC sh
+redis-cli -h -p -a
+select
+   #+END_SRC
 
 * 部署操作
   此处详细说明完成的模块部署时进行的操作。
-   #+BEGIN_SRC sh
+  #+BEGIN_SRC sh
 
    #+END_SRC
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
-# author:phenix3443@gmail.com
+# author:phenix3443+github@gmail.com
 """mysql数据库接口"""
 
 import os

@@ -1,6 +1,6 @@
 -- -*- coding:utf-8 -*-
 -- 示例db配置
--- @author:phenix3443@gmail.com
+-- @author:phenix3443+github@gmail.com
 
 
 local M = {}

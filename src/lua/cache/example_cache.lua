@@ -1,6 +1,6 @@
 -- -*- coding:utf-8 -*-
 -- 缓存示例程序
--- @author:phenix3443@gmail.com
+-- @author:phenix3443+github@gmail.com
 
 local cjson = require("cjson.safe")
 local class = require("pl.class")

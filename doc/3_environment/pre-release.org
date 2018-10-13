@@ -1,0 +1,41 @@
+# -*- coding:utf-8-*-
+#+TITLE:【项目名称】预发布环境
+#+AUTHOR: liushangliang
+#+EMAIL: phenix3443+github@gmail.com
+#+OPTIONS: author:nil date:nil creator:nil timestamp:nil validate:nil
+
+* 当前版本
+
+  说明当前生产环境的版本。
+
+* 部署
+  |      | server |
+  |------+--------|
+  | Host |        |
+  | Port |    80  |
+  | Dir  |        |
+
+* 依赖说明
+  | server | IP | Port |
+  |--------+----+------|
+  |        |    |      |
+
+* 数据库
+** mysql
+   #+BEGIN_SRC sh
+mysql -h127.0.0.1 -uroot -p db_name
+   #+END_SRC
+
+** redis
+   #+BEGIN_SRC sh
+redis-cli -h -p -a
+select
+   #+END_SRC
+* 部署操作
+  此处详细说明完成的模块部署时进行的操作。
+  #+BEGIN_SRC sh
+
+  #+END_SRC
+
+* 验证操作
+  此处说明部署以后如何对功能进行验证。

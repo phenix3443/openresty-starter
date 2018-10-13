@@ -1,6 +1,6 @@
 -- -*- coding:utf-8 -*-
 --- 接口统计代码
--- @author:phenix3443@gmail.com
+-- @author:phenix3443+github@gmail.com
 
 local falcon_config = require ("config.falcon")
 local falcon = require ("falcon.falcon")
