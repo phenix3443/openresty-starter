@@ -30,8 +30,9 @@ function do_compile {
 
     tar xzf ${DOWNLOAD_FILE} \
         && cd ${OPENRESTY} \
-        && ./configure --prefix=/data/github/openresty-delvelop-frame/install && make && make install
-    # && cd .. && rm -fr ${OPENRESTY} ${DOWNLOAD_FILE}
+        && ./configure --prefix=${INSTALL_DIR} \
+        && make && make install \
+        && cd .. && rm -fr ${OPENRESTY} ${DOWNLOAD_FILE}
 }
 
 
