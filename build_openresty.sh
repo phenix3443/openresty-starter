@@ -7,6 +7,7 @@ SCRIPT_DIR=$(cd $(dirname $0);pwd)
 PROJECT_DIR=${SCRIPT_DIR}
 
 INSTALL_DIR=$1                  # 项目安装目录
+echo "install dir:" ${INSTALL_DIR}
 NGINX_BIN=${INSTALL_DIR}/nginx/sbin/nginx
 
 OPENRESTY=openresty-1.13.6.2
@@ -27,7 +28,10 @@ function do_compile {
         wget ${DOWNLOAD_URL}
     fi
 
-    tar xzf ${DOWNLOAD_FILE} && cd ${OPENRESTY} && ./configure --prefix=${INSTALL_DIR} && make -j4 && make install && cd .. && rm -fr ${OPENRESTY} ${DOWNLOAD_FILE}
+    tar xzf ${DOWNLOAD_FILE} \
+        && cd ${OPENRESTY} \
+        && ./configure --prefix=/data/github/openresty-delvelop-frame/install && make && make install
+    # && cd .. && rm -fr ${OPENRESTY} ${DOWNLOAD_FILE}
 }
 
 
