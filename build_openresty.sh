@@ -7,7 +7,6 @@ SCRIPT_DIR=$(cd $(dirname $0);pwd)
 PROJECT_DIR=${SCRIPT_DIR}
 
 INSTALL_DIR=$1                  # 项目安装目录
-echo "install dir:" ${INSTALL_DIR}
 NGINX_BIN=${INSTALL_DIR}/nginx/sbin/nginx
 
 OPENRESTY=openresty-1.13.6.2
