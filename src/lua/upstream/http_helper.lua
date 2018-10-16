@@ -24,6 +24,10 @@ function M:_init(cfg)
     self.httpc = httpc
 end
 
+function M:is_connected()
+    return self.httpc
+end
+
 function M:close()
     local ok, err = self.httpc:set_keepalive(10000, 100)
     if not ok then
