@@ -11,7 +11,7 @@ local M = {}
 
 function M.get_example_db_version()
     local example_db = ExampleDB(example_db_cfg.connect_info)
-    if not example_db then
+    if not example_db:is_connected() then
         return
     end
     local version = example_db:get_mysql_version()

@@ -19,7 +19,7 @@ function M:_init(redis_cfg)
     ok, err = red:connect(redis_cfg.host, redis_cfg.port)
 
     if not ok then
-        ngx.log(ngx.ERR,"failed to connect: ", err)
+        ngx.log(ngx.ERR,"failed to connect: ", redis_cfg.name, " err:",err)
         return
     end
 

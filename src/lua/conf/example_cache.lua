@@ -8,6 +8,7 @@ local M = {}
 
 if rt.mode == "develop" then
     M.connect_info = {
+        name = "",
         host = "127.0.0.1",
         port = 6379,
         database = 0,
@@ -15,6 +16,7 @@ if rt.mode == "develop" then
     }
 elseif rt.mode == "pre-release" then
     M.connect_info = {
+        name = "",
         host = "127.0.0.1",
         port = 6379,
         database = 0,
@@ -22,6 +24,7 @@ elseif rt.mode == "pre-release" then
     }
 elseif rt.mode == "release" then
     M.connect_info = {
+        name = "",
         host = "127.0.0.1",
         port = 6379,
         database = 0,

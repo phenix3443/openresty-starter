@@ -11,7 +11,7 @@ local M = {}
 
 function M.get_example_cache_info()
     local example_cache = ExampleCache(mcc.connect_info)
-    if not example_cache then
+    if not example_cache:is_connected() then
         return
     end
     local ok = example_cache:get_info()
