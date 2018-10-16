@@ -6,7 +6,7 @@ local cjson = require("cjson.safe")
 local falcon = require("falcon.falcon")
 local database = require("database.database")
 local function main()
-    -- local dict = ngx.shared["xl_lixian_download_vip_interface_server"]
+    -- local dict = ngx.shared[""]
     -- dict:flush_all()
 
     -- local item = "dog"

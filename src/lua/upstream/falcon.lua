@@ -1,6 +1,6 @@
 -- -*- coding:utf-8 -*-
 --- 账号服务接口
--- @author:liushangliang@xunlei.com
+-- @author:phenix3443+github@gmail.com
 
 local cjson = require("cjson.safe")
 local class = require("pl.class")

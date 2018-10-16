@@ -30,7 +30,7 @@
 
 * 请求示例
   #+BEGIN_SRC sh
-curl -v -d'' -H "Accept-Language:zh-CN" -H "Cookie:origin=1" https://ad-config.onethingpcs.com/ad/get_info
+curl -v -d'' -H "Accept-Language:zh-CN" https://<domain>/ad/get_info
   #+END_SRC
 
 * 响应示例
