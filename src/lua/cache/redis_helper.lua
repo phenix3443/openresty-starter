@@ -11,7 +11,7 @@ local M = class()
 function M:_init(redis_cfg)
     local red, err = redis:new()
     if not red then
-        ngx.log(ngx.ERR,"failed to instantiate redsi: ", err)
+        ngx.log(ngx.ERR,"failed to instantiate redis: ", err)
         return
     end
 
