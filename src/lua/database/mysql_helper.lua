@@ -26,6 +26,10 @@ function M:_init(db_cfg)
     self.db = db
 end
 
+function M:is_connected()
+    return self.db
+end
+
 function M:close()
     local ok, err = self.db:set_keepalive(10000, 100)
     if not ok then

@@ -42,6 +42,10 @@ function M:_init(redis_cfg)
     self.red = red
 end
 
+function M:is_connected()
+    return self.red
+end
+
 function M:close()
     local ok, err = self.red:set_keepalive(10000, 100)
     if not ok then
