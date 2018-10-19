@@ -6,7 +6,7 @@ local cjson = require("cjson.safe")
 local tablex = require("pl.tablex")
 
 local config = require("conf.config")
-local err_cfg = require("conf.err")
+local err_code = require("conf.err_code")
 
 local M = {}
 
@@ -17,19 +17,17 @@ function M.concat_k_v(t, pos)
     ngx.log(ngx.DEBUG, "concated str:", str)
     return str
 end
-function M.send_resp(err, data)
-    local resp  = {
-        iRet = err_cfg.code[err],
-        sMsg = err_cfg.msg[err],
-    }
 
-    if resp.iRet == err_cfg.code["OK"] then
-        resp["data"] = data
-    end
+function M.send_resp(status, code, msg)
+    ngx.status = status
+
+    local resp  = {
+        code = code,
+        message = msg
+    }
 
     ngx.print(cjson.encode(resp))
     ngx.exit(ngx.HTTP_OK)
 end
-
 
 return M

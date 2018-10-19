@@ -25,7 +25,7 @@ class TestExampleServer(unittest.TestCase):
     def test_test(self):
         """测试test接口"""
         resp = self.es.test_utils()
-        print(json.dumps(resp, indent=4, ensure_ascii=False))
+        logger.debug(json.dumps(resp, indent=4, ensure_ascii=False))
 
 
 if __name__ == '__main__':

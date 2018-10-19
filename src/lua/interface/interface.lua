@@ -4,7 +4,6 @@
 
 
 local cjson = require("cjson.safe")
-local cookie = require("resty.cookie")
 
 local cfg = require("conf.config")
 local upstream_cfg = require("conf.upstream")
@@ -22,15 +21,6 @@ local function get_req()
     local headers = ngx.req.get_headers()
     ngx.log(ngx.DEBUG, "headers:", cjson.encode(headers))
 
-    -- cookies
-    local ck, err = cookie:new()
-    if not cookie then
-        ngx.log(ngx.ERR, "cookie new err:", err)
-        return
-    end
-
-    ngx.log(ngx.DEBUG, "cookie:", ck:get_all())
-
     -- 检查body
     ngx.req.read_body()
     local body = ngx.req.get_body_data()
@@ -44,10 +34,10 @@ local function get_req()
         ngx.log(ngx.WARN, "json decode error, body: ", body)
     end
 
-    for _,k in pairs({'userid','last_ad_id','last_watchtime','appversion'}) do
+    for _,k in pairs({}) do
         local v = json_data[k]
         if nil == v then
-            ngx.log(ngx.ERR, "req param invalid, lack: ", k, " req:",post_data)
+            ngx.log(ngx.ERR, "req param invalid, lack: ", k, " req:", body)
             return
         end
     end
@@ -57,7 +47,7 @@ local function get_req()
     return req
 end
 
-local function get_resp(req)
+local function gen_resp(req)
     local resp = {}
 
     ngx.log(ngx.INFO, "resp: ", cjson.encode(resp))
@@ -69,7 +59,7 @@ local function main()
     if not req then
     end
 
-    local resp = get_resp(req)
+    local resp = gen_resp(req)
 end
 
 main()
