@@ -1,19 +1,13 @@
 -- -*- coding:utf-8; -*-
--- @author:liushangliang@xunlei.com
+-- @author:phenix3443+github@gmail.com
 -- desc:
 -- doc: http://book.open-falcon.org/zh_0_2/usage/data-push.html
 
 local cjson = require("cjson.safe")
 local stringx = require("pl.stringx")
+local metrics = require("falcon.metrics")
 
 local M = {}
-
-M.metric_mods = {
-    qps = require("falcon.metrics.qps"),
-    tps = require("falcon.metrics.tps"),
-    status = require("falcon.metrics.status"),
-    request_time = require("falcon.metrics.request_time"),
-}
 
 local function get_host_name()
     local f = io.popen ("/bin/hostname")
@@ -23,8 +17,6 @@ local function get_host_name()
     return hostname
 end
 
-local host_name = get_host_name()
-
 function M.get_mod(shm_key)
     local arr = stringx.split(shm_key, ":")
     if #arr < 1 then
@@ -33,7 +25,7 @@ function M.get_mod(shm_key)
     end
 
     local metric = arr[1]
-    local mod = M.metric_mods[metric]
+    local mod = metrics.mods[metric]
     if not mod then
         ngx.log(ngx.ERR, "invalid mod,", shm_key)
         return
@@ -53,6 +45,7 @@ function M.incr_value(shm_key)
     end
 end
 
+local host_name = get_host_name()
 -- 生成shm_key对应的falcon item
 function M.gen_item(shm_key, value)
     local mod = M.get_mod(shm_key)

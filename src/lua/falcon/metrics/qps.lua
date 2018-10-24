@@ -1,6 +1,6 @@
 -- -*- coding:utf-8; -*-
 --- qps(query per second) shm key module
--- @author:liushangliang@xunlei.com
+-- @author:phenix3443+github@gmail.com
 
 local stringx = require("pl.stringx")
 

@@ -1,6 +1,6 @@
 -- -*- coding:utf-8; -*-
 --- http request_time parser
--- @author:liushangliang@xunlei.com
+-- @author:phenix3443+github@gmail.com
 
 local stringx = require("pl.stringx")
 
@@ -9,7 +9,7 @@ local M = {
 }
 
 -- 生成shm_key，必备
--- shm_key=qps:url:request_time
+-- shm_key=request_time:domain:url:request_time
 function M.gen_shm_key(domain, url, request_time)
     local interval = 50 --milliseconds
     -- 如果time_range = 50表示0-50ms以内， 100 表示 50-100ms

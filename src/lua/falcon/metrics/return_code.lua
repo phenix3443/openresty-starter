@@ -1,18 +1,18 @@
 -- -*- coding:utf-8; -*-
 --- 示例 metric mod
--- @author:liushangliang@xunlei.com
+-- @author:phenix3443+github@gmail.com
 
 local stringx = require("pl.stringx")
 
 local M = {
-    metric = "example"
+    metric = "ret_code"
 }
 
 -- 生成shm_key，必备
--- shm_key=status:url:status_code
+-- shm_key=ret_code:domain:url:code
 -- todo:
-function M.gen_shm_key()
-    local shm_key = string.format("%s:%s:%s", M.metric, ngx.escape_uri(ngx.var.uri), ngx.var.status)
+function M.gen_shm_key(domain, url, ret_code)
+    local shm_key = string.format("%s:%s:%s:%s", M.metric, domain, url, ret_code)
     ngx.log(ngx.DEBUG, "shm_key=", shm_key)
     return shm_key
 end
@@ -23,7 +23,7 @@ function M.get_falcon_info(shm_key)
     local item = {
         metric = M.metric,
         step = 60,
-        tags = string.format("domain=%s,url=%s,cost=%d", ngx.var.server_name, ngx.unescape_uri(arr[2]), arr[3]),
+        tags = string.format("domain=%s,url=%s,ret_code=%d", arr[2], ngx.unescape_uri(arr[3]), arr[4]),
         counterType = "COUNTER"
         -- counterType = "GAUGE"
     }

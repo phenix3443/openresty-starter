@@ -19,7 +19,7 @@ local function stat_interface_metrics()
     falcon.incr_value(shm_key)
 
     -- tps
-    tps.gen_shm_key(domain, url)
+    shm_key = tps.gen_shm_key(domain, url)
     falcon.incr_value(shm_key)
 
     -- status

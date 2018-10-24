@@ -1,6 +1,6 @@
 -- -*- coding:utf-8; -*-
 --- http status parser
--- @author:liushangliang@xunlei.com
+-- @author:phenix3443+github@gmail.com
 
 local stringx = require("pl.stringx")
 
