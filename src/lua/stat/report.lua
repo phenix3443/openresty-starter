@@ -4,7 +4,7 @@
 
 local cjson = require("cjson.safe")
 local upstream_cfg = require("conf.upstream")
-local falcon = require ("stat.falcon")
+local falcon = require ("falcon.falcon")
 local FALCON = require ("upstream.falcon")
 
 -- 将shm_dict中的数据上报falcon

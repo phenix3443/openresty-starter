@@ -6,16 +6,20 @@ local cjson = require("cjson.safe")
 local class = require("pl.class")
 
 local http_helper = require("upstream.http_helper")
+local falcon = require ("falcon.falcon")
+local status = require("falcon.metrics.status")
 
 local M = class(http_helper)
 
 function M:send(req)
-    ngx.log(ngx.DEBUG, "req:", cjson.encode(req))
+    ngx.log(ngx.INFO, "req:", cjson.encode(req))
     local res, err = self.httpc:request(req)
     if not res then
         ngx.log(ngx.ERR, "failed to get resp:", err)
         return
     end
+    local shm_key = status.gen_shm_key(req.headers.Host, req.path, res.status)
+    falcon.incr_value(shm_key)
 
     if res.status ~= ngx.HTTP_OK then
         ngx.log(ngx.ERR, "resp http status err, status", res.status, " reason:", res.reason)
@@ -23,7 +27,7 @@ function M:send(req)
     end
 
     local body = res:read_body()
-    ngx.log(ngx.DEBUG, "resp body:", body)
+    ngx.log(ngx.INFO, "resp body:", body)
 
     local data = cjson.decode(body)
     if not data then
