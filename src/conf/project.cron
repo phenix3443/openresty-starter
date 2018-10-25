@@ -3,7 +3,7 @@
 # desc: 项目对应的crontab任务
 
 # project crontab start
-* * * * * <project-path>/nginx/sbin/monitor.sh
-* * * * * <project-path>/nginx/sbin/report_falcon.sh
+* * * * * <example-project-path>/nginx/sbin/monitor.sh
+* * * * * <example-project-path>/nginx/sbin/report_falcon.sh
 
 # project crontab end

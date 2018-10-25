@@ -18,14 +18,15 @@ SETTINGS = {
             'formatter': 'verbose'
         },
     },
-    'loggers': {
-        "test_example": {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-        },
-        "example_server": {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-        },
-    }
+    'loggers': {}
 }
+
+MODULES = ["example_server"]
+TESTS = ["test_example_server"]
+
+for i in [MODULES, TESTS]:
+    for k in i:
+        SETTINGS["loggers"][k] = {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+        }

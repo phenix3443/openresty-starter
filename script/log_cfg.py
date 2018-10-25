@@ -18,10 +18,15 @@ SETTINGS = {
             'formatter': 'verbose'
         },
     },
-    'loggers': {
-        "main_db": {
+    'loggers': {}
+}
+
+MODULES = ["example_db", "falcon"]
+TESTS = []
+
+for i in [MODULES, TESTS]:
+    for k in i:
+        SETTINGS["loggers"][k] = {
             'handlers': ['console'],
             'level': 'DEBUG',
-        },
-    }
-}
+        }

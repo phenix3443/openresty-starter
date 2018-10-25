@@ -6,7 +6,6 @@ import logging
 import mysql.connector
 
 import config
-import xllog
 
 logger = logging.getLogger(__name__)
 
@@ -35,10 +34,4 @@ class MainDB():
 
 
 if __name__ == "__main__":
-    config.add_logger(logger)
-    xllog.init_logger(config.sub_loggers)
-
-    mdb = MainDB(config.main_db)
-    cursor = mdb.get_conn().cursor()
-    res = mdb.get_version()
-    print(res)
+    pass

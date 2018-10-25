@@ -17,11 +17,11 @@ function M:_init(db_cfg)
     local ok, err, errcode, sqlstate = db:connect(db_cfg)
 
     if not ok then
-        ngx.log(ngx.ERR,"failed to connect: ",db_cfg.database," err:", err, " errcode:", errcode, " ", sqlstate)
+        ngx.log(ngx.ERR,"failed to connect ", self.database," err:", err, " errcode:", errcode)
         return
     end
 
-    ngx.log(ngx.DEBUG,"connected to mysql.")
+    ngx.log(ngx.DEBUG,"connected to ", self.database)
 
     self.db = db
 end

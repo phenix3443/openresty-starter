@@ -3,7 +3,7 @@
 # author:phenix3443+github@gmail.com
 # description: nginx http server.
 # Settings Nginx
-SERVER_NAME="app_config"
+SERVER_NAME="example-bin"
 SCRIPT_DIR=$(cd $(dirname $0);pwd)
 NGINX_DIR=$(cd ${SCRIPT_DIR}/../;pwd)
 

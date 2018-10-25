@@ -18,15 +18,10 @@ function M.concat_k_v(t, pos)
     return str
 end
 
-function M.send_resp(status, code, msg)
+function M.send_resp(status, msg)
     ngx.status = status
-
-    local resp  = {
-        code = code,
-        message = msg
-    }
-
-    ngx.print(cjson.encode(resp))
+    ngx.log(ngx.INFO, msg)
+    ngx.print(msg)
     ngx.exit(ngx.HTTP_OK)
 end
 

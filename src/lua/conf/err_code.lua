@@ -9,9 +9,4 @@ M.code = {
     ["ERR_PARAM"] = 1,
 }
 
-M.msg = {
-    ["OK"] = "ok",
-    ["ERR_PARAM"] = "参数错误",
-}
-
 return M

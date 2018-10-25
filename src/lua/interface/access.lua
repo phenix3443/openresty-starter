@@ -69,7 +69,7 @@ local function main()
     then
         ngx.log(ngx.DEBUG, "check common req params pass")
     else
-        utils.send_resp("PARAM_ERR")
+        utils.send_resp("ERR_PARAM")
     end
 end
 
