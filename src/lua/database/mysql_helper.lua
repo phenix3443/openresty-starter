@@ -21,7 +21,7 @@ function M:_init(db_cfg)
         return
     end
 
-    ngx.log(ngx.DEBUG,"connected to ", self.database)
+    ngx.log(ngx.DEBUG,"connected to ", db_cfg.database)
 
     self.db = db
 end
