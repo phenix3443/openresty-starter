@@ -7,22 +7,22 @@ local rt = require("conf.runtime")
 local M = {}
 
 if rt.mode == "develop" then
-    M.upstream = {
-        host = "",
-        ip = "",
-        port = 80
+    M.falcon = {
+        host = "falcon-agent.localhost",
+        ip = "127.0.0.1",
+        port = 30976
     }
 elseif rt.mode == "pre-release" then
-    M.upstream = {
-        host = "",
-        ip = "",
-        port = 80
+    M.falcon = {
+        host = "falcon-agent.localhost",
+        ip = "127.0.0.1",
+        port = 30976
     }
 elseif rt.mode == "release" then
-    M.upstream = {
-        host = "",
-        ip = "",
-        port = 80
+    M.falcon = {
+        host = "falcon-agent.localhost",
+        ip = "127.0.0.1",
+        port = 30976
     }
 end
 
