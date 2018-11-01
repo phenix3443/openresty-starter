@@ -15,10 +15,6 @@ local function report()
         return
     end
 
-    for _, item in pairs(payload) do
-        item.tags = item.tags .. ",project=example"
-    end
-
     local f = FALCON(upstream_cfg.falcon)
     if f:is_connected() then
         local resp = f:report(payload)
