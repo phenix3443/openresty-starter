@@ -6,11 +6,13 @@
 SERVER_NAME="example-bin"
 SCRIPT_DIR=$(cd $(dirname $0);pwd)
 NGINX_DIR=$(cd ${SCRIPT_DIR}/../;pwd)
+DT=$(date +'%Y-%m-%dT%H:%M:%S')
 
-echo "monitor checking"
-num=$(ps -ef | grep ${SERVER_NAME} | grep -vE 'grep' | wc -l)
+num=$(ps -ef | grep ${SERVER_NAME} | grep -vE 'grep|monitor' | wc -l)
+echo ${num}
 if [ ${num} -lt 1 ];then
-    datetime=`date +'%Y-%m-%dT%H:%M:%S'`
-    echo "${datetime}, restart nginx now" >> ${NGINX_DIR}/logs/start.log
-    restart
+    echo "${DT}, restart nginx now" >> ${NGINX_DIR}/logs/monitor.log
+    ${NGINX_DIR}/sbin/${SERVER_NAME}
+else
+    echo "${DT}, run normal" >> ${NGINX_DIR}/logs/monitor.log
 fi
