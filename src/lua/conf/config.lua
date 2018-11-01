@@ -4,4 +4,6 @@
 
 local M = {}
 
+M.project = "example"
+
 return M

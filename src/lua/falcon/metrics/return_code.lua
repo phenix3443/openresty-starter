@@ -4,6 +4,8 @@
 
 local stringx = require("pl.stringx")
 
+local cfg = require("conf.config")
+
 local M = {
     metric = "ret_code"
 }
@@ -23,7 +25,7 @@ function M.get_falcon_info(shm_key)
     local item = {
         metric = M.metric,
         step = 60,
-        tags = string.format("domain=%s,url=%s,ret_code=%d", arr[2], ngx.unescape_uri(arr[3]), arr[4]),
+        tags = string.format("project=%s,domain=%s,url=%s,ret_code=%d", cfg.project, arr[2], ngx.unescape_uri(arr[3]), arr[4]),
         counterType = "COUNTER"
         -- counterType = "GAUGE"
     }
