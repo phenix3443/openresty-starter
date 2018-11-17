@@ -10,22 +10,8 @@ local M = class()
 
 function M:_init(cfg)
     self.host = cfg.host
-
-    local httpc = http.new()
-    local ok, err = httpc:connect(cfg.ip, cfg.port)
-
-    if not ok then
-        ngx.log(ngx.ERR, "connect ", cfg.host, " failed, ", err)
-        return
-    end
-
-    ngx.log(ngx.DEBUG, "connect ", cfg.host, " successful")
-
-    self.httpc = httpc
-end
-
-function M:is_connected()
-    return self.httpc
+    self.uri = cfg.uri
+    self.httpc = http.new()
 end
 
 function M:close()

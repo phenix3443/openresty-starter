@@ -16,10 +16,8 @@ local function report()
     end
 
     local f = FALCON(upstream_cfg.falcon)
-    if f:is_connected() then
-        local resp = f:report(payload)
-        ngx.say(cjson.encode(resp))
-    end
+    local resp = f:report(payload)
+    ngx.say(cjson.encode(resp))
 end
 
 report()
