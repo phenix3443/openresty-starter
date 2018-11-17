@@ -5,24 +5,17 @@
 # install(CODE "execute_process(COMMAND bash \"-c\" ${PROJECT_SOURCE_DIR}/build_openresty.sh ${CMAKE_INSTALL_PREFIX})")
 
 install(
-  # 存放程序运行控制脚本，start,stop,resetart,monitor等
-  DIRECTORY src/sbin/
-  DESTINATION nginx/sbin
-  USE_SOURCE_PERMISSIONS
-  FILES_MATCHING
-  PATTERN "*.sh"
-  )
-
-install(
-  # 存放项目的nginx配置文件
-  DIRECTORY src/conf/
-  DESTINATION nginx/conf
+  # nginx相关文件
+  DIRECTORY nginx
+  DESTINATION nginx
   USE_SOURCE_PERMISSIONS
   FILES_MATCHING
   PATTERN "*.conf"
   PATTERN "*.cron"
   PATTERN "*.crt"
   PATTERN "*.key"
+  PATTERN "*.lua"
+  PATTERN "*.sh"
   )
 
 install(
