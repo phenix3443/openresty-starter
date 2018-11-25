@@ -4,6 +4,8 @@
 
 # project crontab start
 * * * * * <example-project-path>/nginx/sbin/monitor.sh
+# access和error日志分割清理
+1 * * * * <example-project-path>/nginx/sbin/log_split.sh > /dev/null 2>&1 &
 * * * * * <example-project-path>/nginx/sbin/report_falcon.sh
 
 # project crontab end

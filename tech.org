@@ -1,6 +1,6 @@
 # -*- coding:utf-8-*-
 #+TITLE: 涉及技术
-#+AUTHOR: liushangliang
+#+AUTHOR: phenix3443
 #+EMAIL: phenix3443+github@gmail.com
 
 * operesty
