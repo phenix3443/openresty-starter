@@ -4,9 +4,11 @@
 
 local M = {}
 
-M.msg = {
-    ["OK"] = "ok",
-    ["ERR_PARAM"] = "参数错误",
-}
+M.code = {}
+M.msg = {}
+
+M.code["SUCCESS"] = 0
+M.msg[0] = "success"
+
 
 return M

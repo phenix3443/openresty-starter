@@ -6,7 +6,7 @@ local cjson = require("cjson.safe")
 local tablex = require("pl.tablex")
 
 local config = require("conf.config")
-local err_code = require("conf.err_code")
+local err_def = require("conf.err_def")
 
 local M = {}
 
