@@ -7,17 +7,14 @@ import unittest
 import json
 
 import config
-import dev_env as env
-# import pre_env as env
-# import online_env as env
-
+import upstream_conf
 import example_server
 
 logger = logging.getLogger("test_example")  # 这里不要使用"__main__"
 
 
 class TestExampleServer(unittest.TestCase):
-    es = example_server.ExampleServer(env.HOST)
+    es = example_server.ExampleServer(upstream_conf.Example)
 
     def setUp(self):
         pass
