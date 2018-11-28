@@ -4,7 +4,7 @@
 
 local M = {}
 
-M.fileinfo = {
+M.interface = {
     ["127.0.0.1"] = true,
 }
 
