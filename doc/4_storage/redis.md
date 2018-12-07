@@ -1,4 +1,4 @@
-<!-- coding:utf-8 -->
+<!-- -*-coding:utf-8-*- -->
 
 redis数据库设计
 
