@@ -39,27 +39,7 @@ local function check_cookie()
 end
 
 local function check_body()
-    ngx.req.read_body()
-    local body = ngx.req.get_body_data()
-    if not body then
-        local err_msg = string.format("缺少body")
-        utils.send_resp(ngx.HTTP_BAD_REQUEST, err_msg)
-    end
-    ngx.log(ngx.DEBUG, "body:", body)
 
-    local data = cjson.decode(body)
-    if not data then
-        local err_msg = string.format("json decode body failed")
-        utils.send_resp(ngx.HTTP_BAD_REQUEST, err_msg)
-    end
-
-    local required = {}
-    for _,k in pairs(required) do
-        if data[k] then
-            local err_msg = string.format("body lack:%s", k)
-            utils.send_resp(ngx.HTTP_BAD_REQUEST, err_msg)
-        end
-    end
 end
 
 local function main()
