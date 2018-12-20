@@ -14,13 +14,4 @@ function M:_init(cfg)
     self.httpc = http.new()
 end
 
-function M:close()
-    local ok, err = self.httpc:set_keepalive(10000, 100)
-    if not ok then
-        ngx.log(ngx.ERR, "set keepalive failed, ", err)
-        return
-    end
-    ngx.log(ngx.DEBUG, "set keepalive successful")
-end
-
 return M
