@@ -27,13 +27,28 @@ function M.concat_k_v(t, pos)
     return str
 end
 
-function M.send_resp(status,body)
+function M.send_err_resp(status,body)
     ngx.status = status
-    ngx.headers["content-type"] = "text/json"
     if body then
-        ngx.log(ngx.INFO, body)
         ngx.print(body)
     end
+    ngx.exit(ngx.HTTP_OK)
+end
+
+function M.send_resp(status, body)
+    ngx.status = status
+    if body then
+        local domain = ngx.var.server_name
+        local url = ngx.escape_uri(ngx.var.uri)
+        local shm_key = retcode.gen_shm_key(domain, url, body.iRet)
+        falcon.incr_value(shm_key)
+
+        ngx.header["content-type"] = "text/json"
+        local client_resp = cjson.encode(body)
+        ngx.log(ngx.INFO, client_resp)
+        ngx.print(client_resp)
+    end
+
     ngx.exit(ngx.HTTP_OK)
 end
 
