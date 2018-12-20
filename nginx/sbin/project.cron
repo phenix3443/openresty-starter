@@ -2,10 +2,9 @@
 # author:phenix3443+github@gmail.com
 # desc: 项目对应的crontab任务
 
-# project crontab start
+# example-project crontab start
 * * * * * <example-project-path>/nginx/sbin/monitor.sh
 # access和error日志分割清理
 1 * * * * <example-project-path>/nginx/sbin/log_split.sh > /dev/null 2>&1 &
 * * * * * <example-project-path>/nginx/sbin/report_falcon.sh
-
-# project crontab end
+# example-project crontab end
