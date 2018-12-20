@@ -27,10 +27,13 @@ function M.concat_k_v(t, pos)
     return str
 end
 
-function M.send_resp(status, msg)
+function M.send_resp(status,body)
     ngx.status = status
-    ngx.log(ngx.INFO, msg)
-    ngx.print(msg)
+    ngx.headers["content-type"] = "text/json"
+    if body then
+        ngx.log(ngx.INFO, body)
+        ngx.print(body)
+    end
     ngx.exit(ngx.HTTP_OK)
 end
 
