@@ -3,7 +3,7 @@
 -- @author:phenix3443+github@gmail.com
 
 local cjson = require("cjson.safe")
-local utils = require("utils.utils")
+local utils = require("misc.utils")
 
 -- 检查url中的query参数
 local function check_query()

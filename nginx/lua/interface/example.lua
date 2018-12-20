@@ -11,7 +11,7 @@ local upstream_cfg = require("conf.upstream")
 local example = require("upstream.example")
 local database = require("database.database")
 local cache = require("cache.cache")
-local utils = require("utils.utils")
+local utils = require("misc.utils")
 
 local function get_req()
     -- header参数

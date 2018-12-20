@@ -5,7 +5,7 @@
 local cjson = require("cjson.safe")
 local lu = require("luaunit")
 
-local utils = require("utils.utils")
+local utils = require("misc.utils")
 
 local function test_concat_k_v()
     local t = {
