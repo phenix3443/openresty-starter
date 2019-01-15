@@ -7,10 +7,9 @@ local class = require("pl.class")
 
 local redis_helper = require("cache.redis_helper")
 
-
 local M = class(redis_helper)
 
-function M.get_info(self)
+function M:get_info()
     local info, err = self.red:info()
     if not info then
        ngx.log(ngx.ERR, "failed to get info: ", err)

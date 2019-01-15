@@ -2,7 +2,7 @@
 # -*-coding:utf-8-*-
 # author:phenix3443+github@gmail.com
 # description: nginx http server.
-# Settings Nginx
+# Settings nginx
 SERVER_NAME="example-bin"
 SCRIPT_DIR=$(cd $(dirname $0);pwd)
 NGINX_DIR=$(cd ${SCRIPT_DIR}/../;pwd)
