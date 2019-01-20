@@ -1,6 +1,8 @@
 -- -*- coding:utf-8; -*-
+
+-------------------------------------------------------------------------------
 --- http status parser
--- @author:phenix3443+github@gmail.com
+-- @module http_status
 
 local stringx = require("pl.stringx")
 
@@ -17,7 +19,7 @@ function M.gen_shm_key(domain, url, status)
     return shm_key
 end
 
--- 根据shm_key获取上报falcon的信息，必备
+-- 根据 shm_key 获取上报 falcon 的信息，必备
 function M.get_falcon_info(shm_key)
     local arr = stringx.split(shm_key,":")
     local item = {

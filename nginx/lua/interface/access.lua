@@ -1,11 +1,13 @@
 -- -*- coding:utf-8 -*-
--- desc:请求公共参数检查
--- @author:phenix3443+github@gmail.com
+
+-------------------------------------------------------------------------------
+-- 请求公共参数检查，被 access_by_lua 调用
+-- @module access
 
 local cjson = require("cjson.safe")
 local utils = require("misc.utils")
 
--- 检查url中的query参数
+-- 检查 url 中的 query 参数
 local function check_query()
     local args = ngx.req.get_uri_args()
     local required = {}

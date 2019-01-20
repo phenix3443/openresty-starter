@@ -1,7 +1,10 @@
 -- -*- coding:utf-8; -*-
--- @author:phenix3443+github@gmail.com
--- desc:
+
+-------------------------------------------------------------------------------
+-- falocn 接口封装
 -- doc: http://book.open-falcon.org/zh_0_2/usage/data-push.html
+-- @module falcon
+
 
 local cjson = require("cjson.safe")
 local stringx = require("pl.stringx")
@@ -46,7 +49,7 @@ function M.incr_value(shm_key)
 end
 
 local host_name = get_host_name()
--- 生成shm_key对应的falcon item
+-- 生成 shm_key 对应的 falcon item
 function M.gen_item(shm_key, value)
     local mod = M.get_mod(shm_key)
     local item = mod.get_falcon_info(shm_key)
@@ -58,7 +61,7 @@ function M.gen_item(shm_key, value)
     return item
 end
 
--- 从shm_dict生成此次上报的payload
+-- 从 shm_dict 生成此次上报的 payload
 function M.gen_payload_from_shm()
     local payload = {}
     local dict = ngx.shared["falcon"]

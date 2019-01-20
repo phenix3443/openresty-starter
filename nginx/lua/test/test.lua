@@ -1,7 +1,9 @@
 -- -*- coding:utf-8; -*-
+
+-------------------------------------------------------------------------------
 --- 测试接口
--- @author:phenix3443+github@gmail.com
--- doc:
+-- @module test
+
 local cjson = require("cjson.safe")
 local falcon = require("falcon.falcon")
 local database = require("database.database")

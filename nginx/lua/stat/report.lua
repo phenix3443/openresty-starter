@@ -1,13 +1,15 @@
 -- -*- coding:utf-8 -*-
---- 接口统计代码
--- @author:phenix3443+github@gmail.com
+
+-------------------------------------------------------------------------------
+-- 上报统计结果到 falcon
+-- @module report
 
 local cjson = require("cjson.safe")
 local upstream_cfg = require("conf.upstream")
 local falcon = require ("falcon.falcon")
 local FALCON = require ("upstream.falcon")
 
--- 将shm_dict中的数据上报falcon
+-- 将 shm_dict 中的数据上报 falcon
 local function report()
     local payload = falcon.gen_payload_from_shm()
     if #payload < 1 then

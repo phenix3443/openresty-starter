@@ -1,7 +1,9 @@
 -- -*- coding:utf-8; -*-
+
+-------------------------------------------------------------------------------
 --- 测试 utils/lang.lua
--- @author:phenix3443+github@gmail.com
--- doc:
+-- @module test_lang
+
 
 local lu = require("luaunit")
 

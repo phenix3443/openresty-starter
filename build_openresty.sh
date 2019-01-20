@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # -*- coding:utf-8-*-
 # author:phenix3443+github@gmail.com
-# desc: 用来编译openresty
+# desc: 用来编译 openresty
 
 SCRIPT_DIR=$(cd $(dirname $0);pwd)
 PROJECT_DIR=${SCRIPT_DIR}
@@ -36,9 +36,9 @@ function do_compile {
 
 
 if [ -e ${NGINX_BIN} ]; then
-    echo "已经编译过openresty"
+    echo "已经编译过 openresty"
 else
-    echo "尚未编译过openresty"
+    echo "尚未编译过 openresty"
     do_compile
-    echo "openresty编译完成"
+    echo "openresty 编译完成"
 fi

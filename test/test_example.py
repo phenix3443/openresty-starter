@@ -1,7 +1,6 @@
 # python3
 # -*- coding:utf-8 -*-
-# author:刘尚亮
-"""远场IS服务接口测试"""
+"""远场 IS 服务接口测试"""
 import logging
 import unittest
 import json
@@ -20,7 +19,7 @@ class TestExampleServer(unittest.TestCase):
         pass
 
     def test_test(self):
-        """测试test接口"""
+        """测试 test 接口"""
         resp = self.es.test_utils()
         logger.debug(json.dumps(resp, indent=4, ensure_ascii=False))
 

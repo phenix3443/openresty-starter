@@ -1,6 +1,9 @@
 -- -*- coding:utf-8; -*-
--- @author:phenix3443+github@gmail.com
--- desc:
+
+-------------------------------------------------------------------------------
+-- 已经注册的 metrics
+-- @module metrics
+
 local M = {}
 
 M.mods = {

@@ -1,5 +1,4 @@
 # -*- coding:utf-8-*-
-# author:phenix3443+github@gmail.com
 # desc: 爬虫数据库接口
 
 import logging
@@ -26,8 +25,8 @@ class ExampleDB():
         self.conn.close()
 
     def example(self, video_item):
-        """添加video表"""
-        """如果该表中ctime=mtime，表明数据是再次采集的"""
+        """添加 video 表"""
+        """如果该表中 ctime=mtime，表明数据是再次采集的"""
         cursor = self.conn.cursor(dictionary=True)
         stmt = "select %s"
 

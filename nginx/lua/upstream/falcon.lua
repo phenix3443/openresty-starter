@@ -1,6 +1,8 @@
 -- -*- coding:utf-8 -*-
---- 账号服务接口
--- @author:phenix3443+github@gmail.com
+
+-------------------------------------------------------------------------------
+--- falcon http 接口封装
+-- @module falcon
 
 local cjson = require("cjson.safe")
 local class = require("pl.class")
@@ -19,7 +21,7 @@ function M:send(path, params)
         return
     end
 
-    -- 统计http 状态码
+    -- 统计 http 状态码
     local shm_key = status.gen_shm_key(self.host, path, res.status)
     falcon.incr_value(shm_key)
 
@@ -34,7 +36,7 @@ function M:send(path, params)
     return body
 end
 
--- 将payload上报falcon
+-- 将 payload 上报 falcon
 function M:report(payload)
     local params = {
         ssl_verify = false,

@@ -1,7 +1,9 @@
 -- -*- coding:utf-8; -*-
---- 测试utils/utils.lua
--- @author:phenix3443+github@gmail.com
--- doc:
+
+-------------------------------------------------------------------------------
+--- 测试 utils/utils.lua
+-- @module test-utils
+
 local cjson = require("cjson.safe")
 local lu = require("luaunit")
 

@@ -1,6 +1,8 @@
 -- -*- coding:utf-8 -*-
+
+-------------------------------------------------------------------------------
 -- 示例数据库
--- @author:phenix3443+github@gmail.com
+-- @module example_db
 
 local cjson = require("cjson.safe")
 local class = require("pl.class")

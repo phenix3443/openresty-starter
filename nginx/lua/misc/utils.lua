@@ -1,13 +1,15 @@
 -- -*- coding:utf-8 -*-
+
+-------------------------------------------------------------------------------
 --- 通用工具函数
--- @author:phenix3443+github@gmail.com
+-- @module utils
 
 local cjson = require("cjson.safe")
 local tablex = require("pl.tablex")
 
 local M = {}
 
--- 获取真实的客户端IP
+-- 获取真实的客户端 IP
 function M.get_client_ip()
     local headers = ngx.req.get_headers()
     local client_ip = ngx.var.remote_addr

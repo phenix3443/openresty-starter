@@ -1,6 +1,9 @@
 -- -*- coding:utf-8 -*-
--- mysql辅助函数
--- @author:phenix3443+github@gmail.com
+
+-------------------------------------------------------------------------------
+-- mysql 辅助函数
+-- @module mysql_helper
+
 local cjson = require("cjson.safe")
 local mysql = require("resty.mysql")
 local class = require("pl.class")

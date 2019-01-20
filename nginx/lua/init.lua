@@ -1,3 +1,5 @@
 -- -*- coding:utf-8 -*-
--- 被init_work_by_lua_file调用，主要用来设定worker的定时器
--- @author:phenix3443+github@gmail.com
+
+-------------------------------------------------------------------------------
+-- 被 init_work_by_lua_file 指令调用，主要用来设定 nginx worker 的定时器
+-- @module init

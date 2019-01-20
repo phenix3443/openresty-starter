@@ -1,6 +1,8 @@
 -- -*- coding:utf-8; -*-
---- 示例 metric mod
--- @author:phenix3443+github@gmail.com
+
+-------------------------------------------------------------------------------
+--- 返回码统计
+-- @module return_code
 
 local stringx = require("pl.stringx")
 
@@ -10,7 +12,7 @@ local M = {
     metric = "ret_code"
 }
 
--- 生成shm_key，必备
+-- 生成 shm_key，必备
 -- shm_key=ret_code:domain:url:code
 -- todo:
 function M.gen_shm_key(domain, url, ret_code)
@@ -19,7 +21,7 @@ function M.gen_shm_key(domain, url, ret_code)
     return shm_key
 end
 
--- 根据shm_key获取上报falcon的信息，必备
+-- 根据 shm_key 获取上报 falcon 的信息，必备
 function M.get_falcon_info(shm_key)
     local arr = stringx.split(shm_key,":")
     local item = {

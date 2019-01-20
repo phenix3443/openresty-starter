@@ -1,16 +1,18 @@
 -- -*- coding:utf-8 -*-
+
+-------------------------------------------------------------------------------
 -- 数据库接口
--- @author:phenix3443+github@gmail.com
+-- @module database
 
 local cjson = require("cjson.safe")
 
-local example_db_cfg = require("conf.example_db")
+local conf = require("conf.config")
 local ExampleDB = require("database.example_db")
 
 local M = {}
 
 function M.get_example_db_version()
-    local example_db = ExampleDB(example_db_cfg.connect_info)
+    local example_db = ExampleDB(conf.example_db)
     if not example_db:is_connected() then
         return
     end

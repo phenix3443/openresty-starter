@@ -1,16 +1,18 @@
 -- -*- coding:utf-8 -*-
---- 缓存接口，主要组合redis相关请求
--- @author:phenix3443+github@gmail.com
+
+-------------------------------------------------------------------------------
+-- 缓存接口，主要组合 redis 相关请求
+-- @module cache
 
 local cjson = require("cjson.safe")
 
-local mcc = require("conf.example_cache")
+local conf = require("conf.config")
 local ExampleCache = require("cache.example")
 
 local M = {}
 
 function M.get_example_cache_info()
-    local example_cache = ExampleCache(mcc.connect_info)
+    local example_cache = ExampleCache(conf.example_cache)
     if not example_cache:is_connected() then
         return
     end

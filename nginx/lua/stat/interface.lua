@@ -1,6 +1,9 @@
 -- -*- coding:utf-8 -*-
--- @author:phenix3443+github@gmail.com
+
+-------------------------------------------------------------------------------
 -- 接口统计代码
+-- @module stat
+
 
 local falcon = require ("falcon.falcon")
 local qps = require("falcon.metrics.qps")
@@ -8,7 +11,7 @@ local tps = require("falcon.metrics.tps")
 local status = require("falcon.metrics.status")
 local request_time = require("falcon.metrics.request_time")
 
--- 将shm_dict中的数据上报falcon
+-- 将 shm_dict 中的数据上报 falcon
 local function stat_interface_metrics()
     local domain = ngx.var.server_name
     local url = ngx.escape_uri(ngx.var.uri)

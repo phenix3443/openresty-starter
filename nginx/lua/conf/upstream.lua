@@ -1,6 +1,8 @@
 -- -*- coding:utf-8 -*-
----上游服务配置
--- @author:phenix3443+github@gmail.com
+
+-------------------------------------------------------------------------------
+-- 依赖的外部应用访问地址。
+-- @module upstream
 
 local conf = require("conf.config")
 

@@ -1,5 +1,4 @@
 # -*- coding:utf-8-*-
-# author:phenix3443+github@gmail.com
 # desc:服务接口
 # doc:
 import requests

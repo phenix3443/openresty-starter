@@ -1,6 +1,5 @@
 # python3
 # -*- coding:utf-8 -*-
-# author:phenix3443+github@gmail.com
 """第三方访问设置"""
 import config
 

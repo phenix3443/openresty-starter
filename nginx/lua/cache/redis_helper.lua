@@ -1,6 +1,8 @@
 -- -*- coding:utf-8 -*-
---- redis辅助
--- @author:phenix3443+github@gmail.com
+
+-------------------------------------------------------------------------------
+--- redis 辅助
+-- @module redis_helper
 
 local cjson = require("cjson.safe")
 local redis = require("resty.redis")

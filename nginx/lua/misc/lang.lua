@@ -1,6 +1,8 @@
 -- -*- coding:utf-8 -*-
---- http头部语言相关
--- @author:phenix3443+github@gmail.com
+
+-------------------------------------------------------------------------------
+--- http 头部语言相关
+-- @module lang
 
 local cjson = require("cjson.safe")
 local tablex = require("pl.tablex")
@@ -8,7 +10,7 @@ local stringx = require("pl.stringx")
 
 local M = {}
 
--- 将Accept_Language解析为table
+-- 将 Accept_Language 解析为 table
 function M.get_lang_options(accept_lang)
     local options = {}
 

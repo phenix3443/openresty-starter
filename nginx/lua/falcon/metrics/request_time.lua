@@ -1,6 +1,8 @@
 -- -*- coding:utf-8; -*-
+
+-------------------------------------------------------------------------------
 --- http request_time parser
--- @author:phenix3443+github@gmail.com
+-- @module request_time
 
 local stringx = require("pl.stringx")
 
@@ -10,11 +12,11 @@ local M = {
     metric = "request_time"
 }
 
--- 生成shm_key，必备
+-- 生成 shm_key，必备
 -- shm_key=request_time:domain:url:request_time
 function M.gen_shm_key(domain, url, request_time)
     local interval = 50 --milliseconds
-    -- 如果time_range = 50表示0-50ms以内， 100 表示 50-100ms
+    -- 如果 time_range = 50 表示 0-50ms 以内，100 表示 50-100ms
     ngx.log(ngx.DEBUG, "request_time", request_time)
     local time_range = math.ceil(request_time/interval) * interval
     local shm_key = string.format("%s:%s:%s:%s", M.metric, domain, url, time_range)
@@ -22,7 +24,7 @@ function M.gen_shm_key(domain, url, request_time)
     return shm_key
 end
 
--- 根据shm_key获取上报falcon的信息，必备
+-- 根据 shm_key 获取上报 falcon 的信息，必备
 function M.get_falcon_info(shm_key)
     local arr = stringx.split(shm_key,":")
     local item = {

@@ -1,6 +1,8 @@
 -- -*- coding:utf-8 -*-
+
+-------------------------------------------------------------------------------
 -- 对外接口代码示例
--- @author:phenix3443+github@gmail.com
+-- @module interface
 
 
 local cjson = require("cjson.safe")
@@ -14,7 +16,7 @@ local cache = require("cache.cache")
 local utils = require("misc.utils")
 
 local function get_req()
-    -- header参数
+    -- header 参数
     local headers = ngx.req.get_headers()
     ngx.log(ngx.DEBUG, "headers:", cjson.encode(headers))
 
@@ -26,7 +28,7 @@ local function get_req()
     ngx.req.read_body()
     local body = ngx.req.get_body_data()
     if not body then
-        local err_msg = string.format("缺少body")
+        local err_msg = string.format("缺少 body")
         utils.send_resp(ngx.HTTP_BAD_REQUEST, err_msg)
     end
     ngx.log(ngx.DEBUG, "body:", body)
