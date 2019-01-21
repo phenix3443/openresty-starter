@@ -8,7 +8,7 @@ local cfg = require("conf.config")
 
 local M = {}
 
-
+--- 统计点名称
 M.metric = "request_time"
 
 --- 生成 request_time 对应的 shm_key

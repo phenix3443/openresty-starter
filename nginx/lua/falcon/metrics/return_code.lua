@@ -8,6 +8,7 @@ local cfg = require("conf.config")
 
 local M = {}
 
+--- 统计点名称
 M.metric = "ret_code"
 
 --- 生成 return_code 对应的 shm_key

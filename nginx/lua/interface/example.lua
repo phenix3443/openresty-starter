@@ -1,7 +1,7 @@
 -- -*- coding:utf-8 -*-
 --- 对外接口代码示例.
--- @module interface
-
+-- @script interface
+-- @author:phenix3443@gmail.com
 
 local cjson = require("cjson.safe")
 
@@ -67,6 +67,7 @@ local function gen_resp(req)
     return client_resp
 end
 
+--- 请求处理接口
 local function main()
     local req = get_req()
 

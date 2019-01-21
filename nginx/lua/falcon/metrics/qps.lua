@@ -9,6 +9,7 @@ local cfg = require("conf.config")
 
 local M = {}
 
+--- 统计点名称
 M.metric = "qps"
 
 --- 生成 qps 对应的 shm_key

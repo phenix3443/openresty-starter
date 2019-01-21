@@ -1,6 +1,5 @@
 -- -*- coding:utf-8; -*-
---- falocn 接口封装.
--- doc: http://book.open-falcon.org/zh_0_2/usage/data-push.html
+--- nginx 共享字典相关接口.
 -- @module shm
 
 local cjson = require("cjson.safe")
@@ -17,6 +16,8 @@ local function get_host_name()
     hostname =string.gsub(hostname, "\n$", "")
     return hostname
 end
+
+local host_name = get_host_name()
 
 --- 获取 shm_key 对应的统计模块
 -- @param shm_key nginx share dict 中存储的 key
@@ -51,9 +52,6 @@ function M.incr_value(shm_key)
         ngx.log(ngx.DEBUG, log_msg)
     end
 end
-
-local host_name = get_host_name()
-
 
 --- 生成 shm_key 对应的 falcon item
 -- @param shm_key 统计点对应的 shm_key

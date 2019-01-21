@@ -3,12 +3,13 @@
 -- tps(task per second)
 -- @module tps
 
-
 local stringx = require("pl.stringx")
 
 local cfg = require("conf.config")
 
 local M = {}
+
+--- 统计点名称
 M.metric = "tps"
 
 --- 生成 tps 对应的 shm_key

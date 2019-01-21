@@ -1,3 +1,3 @@
 -- -*- coding:utf-8 -*-
 --- 测试代码的配置.
--- @module config
+-- @module test.config
