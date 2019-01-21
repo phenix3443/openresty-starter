@@ -1,6 +1,7 @@
 -- -*- coding:utf-8 -*-
 --- http 头部语言相关.
 -- @module lang
+-- @author:phenix3443@gmail.com
 
 local M = {}
 

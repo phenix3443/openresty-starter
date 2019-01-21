@@ -1,6 +1,7 @@
 -- -*- coding:utf-8 -*-
 --- 上报统计结果到 falcon.
 -- @module report
+-- @author:phenix3443@gmail.com
 
 local cjson = require("cjson.safe")
 local upstream_cfg = require("conf.upstream")

@@ -2,6 +2,7 @@
 --- 缓存实例.
 -- 使用具体的技术（redis，memcache 等）实现一个缓存实例。
 -- @classmod example_cache
+-- @author:phenix3443@gmail.com
 
 local cjson = require("cjson.safe")
 local class = require("pl.class")

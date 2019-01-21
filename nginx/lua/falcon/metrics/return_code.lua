@@ -1,6 +1,7 @@
 -- -*- coding:utf-8; -*-
 --- 统计接口返回码.
 -- @module return_code
+-- @author:phenix3443@gmail.com
 
 local stringx = require("pl.stringx")
 

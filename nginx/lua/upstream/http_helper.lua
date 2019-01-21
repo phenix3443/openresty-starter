@@ -2,6 +2,7 @@
 --- lua_http 接口封装示例.
 -- 参考 https://github.com/daurnimator/lua-http
 -- @classmod http_helper
+-- @author:phenix3443@gmail.com
 
 local cjson = require("cjson.safe")
 local http = require("resty.http")

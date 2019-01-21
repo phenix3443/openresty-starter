@@ -1,6 +1,7 @@
 -- -*- coding:utf-8 -*-
 --- 数据库接口.
 -- @module database
+-- @author:phenix3443@gmail.com
 
 local cjson = require("cjson.safe")
 

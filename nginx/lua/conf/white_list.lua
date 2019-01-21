@@ -2,6 +2,7 @@
 --- 白名单配置.
 -- 该文件中的配置应该根据实际情况进行配置。
 -- @module conf.white_list
+-- @author:phenix3443@gmail.com
 
 local M = {}
 

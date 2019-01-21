@@ -1,6 +1,7 @@
 -- -*- coding:utf-8 -*-
 --- 依赖的外部应用访问地址配置.
 -- @module conf.upstream
+-- @author:phenix3443@gmail.com
 
 local conf = require("conf.config")
 

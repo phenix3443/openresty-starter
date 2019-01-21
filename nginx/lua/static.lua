@@ -1,6 +1,7 @@
 -- -*- coding:utf-8 -*-
 --- 接口相关统计.
 -- @module stat.interface
+-- @author:phenix3443@gmail.com
 
 local shm = require ("misc.shm")
 local qps = require("falcon.metrics.qps")

@@ -2,6 +2,7 @@
 --- 业务缓存层接口.
 -- 该层主要对接业务接口，进一步封装底层的软件实现。
 -- @module cache
+-- @author:phenix3443@gmail.com
 
 local cjson = require("cjson.safe")
 

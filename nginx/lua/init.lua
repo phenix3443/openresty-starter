@@ -2,3 +2,4 @@
 --- init nginx.
 -- 被 init_by_lua_file 调用，主要用来设定 worker 的定时器
 -- @module init
+-- @author:phenix3443@gmail.com

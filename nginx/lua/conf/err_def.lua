@@ -1,6 +1,7 @@
 -- -*- coding:utf-8 -*-
 --- 错误码配置.
 -- @module conf.err_def
+-- @author:phenix3443@gmail.com
 
 local M = {}
 

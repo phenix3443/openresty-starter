@@ -1,7 +1,7 @@
 -- -*- coding:utf-8; -*-
 --- misc/lang.lua 测试用例.
--- @module test_lang
-
+-- @script test_lang
+-- @author:phenix3443@gmail.com
 
 local lu = require("luaunit")
 

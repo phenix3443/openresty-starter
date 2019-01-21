@@ -2,6 +2,7 @@
 --- 统计接口 tps.
 -- tps(task per second)
 -- @module tps
+-- @author:phenix3443@gmail.com
 
 local stringx = require("pl.stringx")
 

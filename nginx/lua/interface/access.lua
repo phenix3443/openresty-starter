@@ -1,7 +1,8 @@
 -- -*- coding:utf-8 -*-
 --- 请求公共参数检查.
 -- access_by_lua 调用
--- @module access
+-- @script access
+-- @author:phenix3443@gmail.com
 
 local cjson = require("cjson.safe")
 local utils = require("misc.utils")

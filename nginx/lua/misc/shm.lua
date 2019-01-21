@@ -1,6 +1,7 @@
 -- -*- coding:utf-8; -*-
 --- nginx 共享字典相关接口.
 -- @module shm
+-- @author:phenix3443@gmail.com
 
 local cjson = require("cjson.safe")
 local stringx = require("pl.stringx")

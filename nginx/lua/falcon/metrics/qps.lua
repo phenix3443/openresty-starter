@@ -2,6 +2,7 @@
 --- 统计接口 qps.
 -- qps(query per second)
 -- @module qps
+-- @author:phenix3443@gmail.com
 
 local stringx = require("pl.stringx")
 

@@ -1,6 +1,7 @@
 -- -*- coding:utf-8 -*-
 --- 公共配置模块.
 -- @module conf.config
+-- @author:phenix3443@gmail.com
 
 local M = {}
 

@@ -2,6 +2,7 @@
 --- 数据库实例.
 -- 使用具体的技术（mysql 等）实现一个持久化数据库。
 -- @classmod example_db
+-- @author:phenix3443@gmail.com
 
 local cjson = require("cjson.safe")
 local class = require("pl.class")

@@ -2,6 +2,7 @@
 --- redis 辅助函数.
 -- 使用 pl.class 简单封装了 redis 数据库的连接和释放
 -- @classmod redis_helper
+-- @author:phenix3443@gmail.com
 
 local cjson = require("cjson.safe")
 local redis = require("resty.redis")

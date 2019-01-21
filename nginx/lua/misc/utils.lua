@@ -1,6 +1,7 @@
 -- -*- coding:utf-8 -*-
 --- 通用工具函数.
 -- @module utils
+-- @author:phenix3443@gmail.com
 
 local cjson = require("cjson.safe")
 local tablex = require("pl.tablex")

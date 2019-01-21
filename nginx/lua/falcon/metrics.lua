@@ -1,6 +1,7 @@
 -- -*- coding:utf-8; -*-
 --- 已经注册的 metrics.
 -- @module metrics
+-- @author:phenix3443@gmail.com
 
 local M = {}
 

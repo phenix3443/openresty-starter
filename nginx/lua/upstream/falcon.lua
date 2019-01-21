@@ -2,6 +2,7 @@
 --- falcon http 接口封装.
 -- doc: http://book.open-falcon.org/zh_0_2/usage/data-push.html
 -- @classmod falcon
+-- @author:phenix3443@gmail.com
 
 local cjson = require("cjson.safe")
 local class = require("pl.class")
