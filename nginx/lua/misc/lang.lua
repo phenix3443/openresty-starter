@@ -3,11 +3,11 @@
 -- @module lang
 -- @author:phenix3443@gmail.com
 
-local M = {}
-
 local cjson = require("cjson.safe")
 local tablex = require("pl.tablex")
 local stringx = require("pl.stringx")
+
+local M = {}
 
 --- 将 Accept_Language 解析为 table.
 -- @tparam string accept_lang  http 头部中 Accept_Language 字段
