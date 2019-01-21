@@ -1,9 +1,6 @@
 -- -*- coding:utf-8 -*-
-
--------------------------------------------------------------------------------
--- 接口统计代码
--- @module stat
-
+--- 接口相关统计.
+-- @module stat.interface
 
 local falcon = require ("falcon.falcon")
 local qps = require("falcon.metrics.qps")
@@ -11,7 +8,8 @@ local tps = require("falcon.metrics.tps")
 local status = require("falcon.metrics.status")
 local request_time = require("falcon.metrics.request_time")
 
--- 将 shm_dict 中的数据上报 falcon
+--- 统计接口相关的数据
+-- 每次请求后，递增接口的 qps，tps 等统计数据
 local function stat_interface_metrics()
     local domain = ngx.var.server_name
     local url = ngx.escape_uri(ngx.var.uri)

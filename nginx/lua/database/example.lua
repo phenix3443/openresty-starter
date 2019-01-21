@@ -1,8 +1,7 @@
 -- -*- coding:utf-8 -*-
-
--------------------------------------------------------------------------------
--- 示例数据库
--- @module example_db
+--- 数据库实例.
+-- 使用具体的技术（mysql 等）实现一个持久化数据库。
+-- @classmod example_db
 
 local cjson = require("cjson.safe")
 local class = require("pl.class")
@@ -11,7 +10,8 @@ local mysql_helper = require("database.mysql_helper")
 
 local M = class(mysql_helper)
 
--- 查询数据库版本信息
+--- 示例程序.
+--查询数据库版本信息
 function M:get_mysql_version()
     local stmt = string.format("select version() as version;")
     ngx.log(ngx.DEBUG, stmt)

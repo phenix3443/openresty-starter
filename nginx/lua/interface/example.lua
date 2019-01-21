@@ -1,7 +1,5 @@
 -- -*- coding:utf-8 -*-
-
--------------------------------------------------------------------------------
--- 对外接口代码示例
+--- 对外接口代码示例.
 -- @module interface
 
 
@@ -15,6 +13,8 @@ local database = require("database.database")
 local cache = require("cache.cache")
 local utils = require("misc.utils")
 
+--- 获取请求中的所有字段
+-- @treturn {key=value...} req 返回所有字段的 table
 local function get_req()
     -- header 参数
     local headers = ngx.req.get_headers()
@@ -54,6 +54,8 @@ local function get_req()
     return req
 end
 
+--- 生成响应的 body
+-- @param req 对应的请求字段
 local function gen_resp(req)
     local resp = {}
     resp.code = err_def.code["success"]

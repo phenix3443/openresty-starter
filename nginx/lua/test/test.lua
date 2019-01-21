@@ -1,12 +1,12 @@
 -- -*- coding:utf-8; -*-
-
--------------------------------------------------------------------------------
---- 测试接口
+--- 测试接口.
 -- @module test
 
 local cjson = require("cjson.safe")
 local falcon = require("falcon.falcon")
 local database = require("database.database")
+
+--- 测试主函数
 local function main()
     -- local dict = ngx.shared[""]
     -- dict:flush_all()

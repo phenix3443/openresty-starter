@@ -1,8 +1,6 @@
 -- -*- coding:utf-8 -*-
-
--------------------------------------------------------------------------------
---- falcon http 接口封装
--- @module falcon
+--- falcon http 接口封装.
+-- @classmod falcon
 
 local cjson = require("cjson.safe")
 local class = require("pl.class")
@@ -14,6 +12,9 @@ local status = require("falcon.metrics.status")
 
 local M = class(http_helper)
 
+--- 发送请求
+-- @param path 请求路径
+-- @param params 参数
 function M:send(path, params)
     local res, err = self.httpc:request_uri(self.uri .. path, params)
     if not res then
@@ -36,7 +37,9 @@ function M:send(path, params)
     return body
 end
 
--- 将 payload 上报 falcon
+--- 将 payload 上报 falcon
+-- @param payload 上报 falcon 的数据
+-- @return 返回 falcon 接口响应
 function M:report(payload)
     local params = {
         ssl_verify = false,

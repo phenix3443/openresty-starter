@@ -1,13 +1,12 @@
 -- -*- coding:utf-8 -*-
-
--------------------------------------------------------------------------------
--- 请求公共参数检查，被 access_by_lua 调用
+--- 请求公共参数检查.
+-- access_by_lua 调用
 -- @module access
 
 local cjson = require("cjson.safe")
 local utils = require("misc.utils")
 
--- 检查 url 中的 query 参数
+--- 检查 http url 中的 公共 query 参数
 local function check_query()
     local args = ngx.req.get_uri_args()
     local required = {}
@@ -19,6 +18,7 @@ local function check_query()
     end
 end
 
+--- 检查 http 头部的公共参数
 local function check_header()
     local hd = ngx.req.get_headers()
     local required = {}
@@ -30,6 +30,7 @@ local function check_header()
     end
 end
 
+--- 检查 cookie 中的公共参数
 local function check_cookie()
     local required = {}
     for _, k in ipairs(required) do
@@ -40,6 +41,7 @@ local function check_cookie()
     end
 end
 
+--- 检查 body 中的公共参数
 local function check_body()
 
 end

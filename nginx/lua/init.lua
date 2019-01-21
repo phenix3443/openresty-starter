@@ -1,5 +1,4 @@
 -- -*- coding:utf-8 -*-
-
--------------------------------------------------------------------------------
--- 被 init_work_by_lua_file 指令调用，主要用来设定 nginx worker 的定时器
+--- init nginx.
+-- 被 init_by_lua_file 调用，主要用来设定 worker 的定时器
 -- @module init

@@ -1,7 +1,6 @@
 -- -*- coding:utf-8 -*-
-
--------------------------------------------------------------------------------
--- 缓存接口，主要组合 redis 相关请求
+--- 业务缓存层接口.
+-- 该层主要对接业务接口，进一步封装底层的软件实现。
 -- @module cache
 
 local cjson = require("cjson.safe")
@@ -11,6 +10,8 @@ local ExampleCache = require("cache.example")
 
 local M = {}
 
+--- 示例程序
+-- 获取 example_cache 实例的相关信息
 function M.get_example_cache_info()
     local example_cache = ExampleCache(conf.example_cache)
     if not example_cache:is_connected() then
@@ -21,5 +22,8 @@ function M.get_example_cache_info()
 
     return ok
 end
+
+-- 以下是具体的接口 -----------------------------------------------------------
+
 
 return M

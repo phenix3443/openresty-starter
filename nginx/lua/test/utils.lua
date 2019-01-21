@@ -1,7 +1,5 @@
 -- -*- coding:utf-8; -*-
-
--------------------------------------------------------------------------------
---- 测试 utils/utils.lua
+--- misc/utils.lua 测试用例.
 -- @module test-utils
 
 local cjson = require("cjson.safe")
@@ -9,6 +7,7 @@ local lu = require("luaunit")
 
 local utils = require("misc.utils")
 
+--- 测试 concat_k_v
 local function test_concat_k_v()
     local t = {
         a = "b",

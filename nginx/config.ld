@@ -1,9 +1,9 @@
 -- -*-mode:lua;coding:utf-8 -*-
-file = "lua/"
+file = "lua"
 project = "example"
 title = "example documentation"
 -- package = ""
-all = true
+-- all = true
 -- format ='markdown | discount | lunamark | plain | backticks'
 -- output = ""
 -- dir = ""

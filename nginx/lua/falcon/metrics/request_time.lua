@@ -1,19 +1,21 @@
 -- -*- coding:utf-8; -*-
-
--------------------------------------------------------------------------------
---- http request_time parser
+--- 统计接口 request_time.
 -- @module request_time
 
 local stringx = require("pl.stringx")
 
 local cfg = require("conf.config")
 
-local M = {
-    metric = "request_time"
-}
+local M = {}
 
--- 生成 shm_key，必备
+
+M.metric = "request_time"
+
+--- 生成 request_time 对应的 shm_key
 -- shm_key=request_time:domain:url:request_time
+-- @param domain 统计点对应的域名
+-- @param url 统计点对应的 url
+-- @param request_time 响应时间
 function M.gen_shm_key(domain, url, request_time)
     local interval = 50 --milliseconds
     -- 如果 time_range = 50 表示 0-50ms 以内，100 表示 50-100ms
@@ -24,7 +26,9 @@ function M.gen_shm_key(domain, url, request_time)
     return shm_key
 end
 
--- 根据 shm_key 获取上报 falcon 的信息，必备
+--- 根据 shm_key 解析对应 falcon 信息
+-- @param shm_key nginx 共享字典中的 key
+-- @treturn {} 返回 falcon 上报的 item
 function M.get_falcon_info(shm_key)
     local arr = stringx.split(shm_key,":")
     local item = {

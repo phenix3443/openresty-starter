@@ -1,16 +1,16 @@
 -- -*- coding:utf-8 -*-
-
--------------------------------------------------------------------------------
---- http 头部语言相关
+--- http 头部语言相关.
 -- @module lang
+
+local M = {}
 
 local cjson = require("cjson.safe")
 local tablex = require("pl.tablex")
 local stringx = require("pl.stringx")
 
-local M = {}
-
--- 将 Accept_Language 解析为 table
+--- 将 Accept_Language 解析为 table.
+-- @tparam string accept_lang  http 头部中 Accept_Language 字段
+-- @treturn {lang:weight...} 语言和权重的对应表
 function M.get_lang_options(accept_lang)
     local options = {}
 
@@ -30,7 +30,9 @@ function M.get_lang_options(accept_lang)
     return options
 end
 
--- 获取客户端最合适的语言
+--- 获取客户端最合适的语言.
+-- @tparam string accept_lang http 头部中 Accept_Language 字段
+-- @treturn string 返回权重最大的语言
 function M.get_favor_lang(accept_lang)
     local favor
     local options = M.get_lang_options(accept_lang or "")

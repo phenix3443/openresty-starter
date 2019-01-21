@@ -1,8 +1,7 @@
 -- -*- coding:utf-8 -*-
-
--------------------------------------------------------------------------------
---- redis 辅助
--- @module redis_helper
+--- redis 辅助函数.
+-- 使用 pl.class 简单封装了 redis 数据库的连接和释放
+-- @classmod redis_helper
 
 local cjson = require("cjson.safe")
 local redis = require("resty.redis")
@@ -10,6 +9,9 @@ local class = require("pl.class")
 
 local M = class()
 
+--- redis 数据库初始化函数
+-- 与 redis 实例建立连接，该函数不需要手动调用。
+-- @param redis_cfg 包含了 redis 数据库的连接信息：host，port，db，password.
 function M:_init(redis_cfg)
     local red, err = redis:new()
     if not red then
@@ -44,10 +46,14 @@ function M:_init(redis_cfg)
     self.red = red
 end
 
+--- 判断 redis 实例连接是否建立成功
+-- @return 如果成功，返回 redis 的连接对象。
 function M:is_connected()
     return self.red
 end
 
+--- 关闭 redis 连接
+-- 此处使用 keepalive 进行高可用。
 function M:close()
     local ok, err = self.red:set_keepalive(10000, 100)
     if not ok then

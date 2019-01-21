@@ -1,7 +1,5 @@
 -- -*- coding:utf-8 -*-
-
--------------------------------------------------------------------------------
--- 上报统计结果到 falcon
+--- 上报统计结果到 falcon.
 -- @module report
 
 local cjson = require("cjson.safe")
@@ -9,7 +7,7 @@ local upstream_cfg = require("conf.upstream")
 local falcon = require ("falcon.falcon")
 local FALCON = require ("upstream.falcon")
 
--- 将 shm_dict 中的数据上报 falcon
+--- 上报 nginx 共享字典中的数据
 local function report()
     local payload = falcon.gen_payload_from_shm()
     if #payload < 1 then
