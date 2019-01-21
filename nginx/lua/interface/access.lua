@@ -14,7 +14,7 @@ local function check_query()
     for _, k in ipairs(required) do
         if not args[k] then
             local err_msg = string.format("url query lack:%s",k)
-            utils.send_resp(ngx.HTTP_BAD_REQUEST, err_msg)
+            utils.send_err_resp(ngx.HTTP_BAD_REQUEST, err_msg)
         end
     end
 end
@@ -26,7 +26,7 @@ local function check_header()
     for _, k in ipairs(required) do
         if not hd[k] then
             local err_msg = string.format("header lack:%s",k)
-            utils.send_resp(ngx.HTTP_BAD_REQUEST, err_msg)
+            utils.send_err_resp(ngx.HTTP_BAD_REQUEST, err_msg)
         end
     end
 end
@@ -37,7 +37,7 @@ local function check_cookie()
     for _, k in ipairs(required) do
         if not ngx.var["cookie_"..k] then
             local err_msg = string.format("cookie lack:%s",k)
-            utils.send_resp(ngx.HTTP_BAD_REQUEST, err_msg)
+            utils.send_err_resp(ngx.HTTP_BAD_REQUEST, err_msg)
         end
     end
 end
