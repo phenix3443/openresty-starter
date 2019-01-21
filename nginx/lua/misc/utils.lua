@@ -6,7 +6,7 @@ local cjson = require("cjson.safe")
 local tablex = require("pl.tablex")
 
 local err_def = require("conf.err_def")
-local falcon = require ("falcon.falcon")
+local shm = require ("misc.shm")
 local retcode = require("falcon.metrics.return_code")
 
 local M = {}
@@ -58,7 +58,7 @@ function M.send_resp(code, data)
     local domain = ngx.var.server_name
     local url = ngx.escape_uri(ngx.var.uri)
     local shm_key = retcode.gen_shm_key(domain, url, code)
-    falcon.incr_value(shm_key)
+    shm.incr_value(shm_key)
 
     local resp  = {}
     resp.iRet = code

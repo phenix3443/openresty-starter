@@ -7,7 +7,7 @@ local class = require("pl.class")
 
 local http_helper = require("upstream.http_helper")
 
-local falcon = require ("falcon.falcon")
+local shm = require ("misc.shm")
 local status = require("falcon.metrics.status")
 
 local M = class(http_helper)
@@ -24,7 +24,7 @@ function M:send(path, params)
 
     -- 统计 http 状态码
     local shm_key = status.gen_shm_key(self.host, path, res.status)
-    falcon.incr_value(shm_key)
+    shm.incr_value(shm_key)
 
     if res.status ~= ngx.HTTP_OK then
         ngx.log(ngx.ERR, "resp http status err, status", res.status, " reason:", res.reason)

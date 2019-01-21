@@ -4,12 +4,12 @@
 
 local cjson = require("cjson.safe")
 local upstream_cfg = require("conf.upstream")
-local falcon = require ("falcon.falcon")
+local shm = require ("misc.shm")
 local FALCON = require ("upstream.falcon")
 
 --- 上报 nginx 共享字典中的数据
 local function report()
-    local payload = falcon.gen_payload_from_shm()
+    local payload = shm.gen_falcon_payload()
     if #payload < 1 then
         ngx.log(ngx.WARN, "empty payload")
         return
