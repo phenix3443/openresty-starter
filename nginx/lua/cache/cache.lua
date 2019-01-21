@@ -6,7 +6,7 @@
 
 local cjson = require("cjson.safe")
 
-local conf = require("conf.config")
+local conf = require("conf.common")
 local ExampleCache = require("cache.example")
 
 local M = {}

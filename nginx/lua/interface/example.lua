@@ -5,7 +5,7 @@
 
 local cjson = require("cjson.safe")
 
-local cfg = require("conf.config")
+local cfg = require("conf.common")
 local err_def = require("conf.err_def")
 local upstream_cfg = require("conf.upstream")
 local example = require("upstream.example")

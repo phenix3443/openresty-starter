@@ -3,7 +3,7 @@
 -- @module conf.upstream
 -- @author:phenix3443@gmail.com
 
-local conf = require("conf.config")
+local conf = require("conf.common")
 
 local M = {}
 

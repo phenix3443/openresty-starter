@@ -6,7 +6,7 @@
 
 local stringx = require("pl.stringx")
 
-local cfg = require("conf.config")
+local cfg = require("conf.common")
 
 local M = {}
 
