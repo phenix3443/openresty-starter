@@ -1,6 +1,6 @@
 -- -*- coding:utf-8 -*-
 --- 接口相关统计.
--- @module stat.interface
+-- @script stat.interface
 -- @author:phenix3443@gmail.com
 
 local shm = require ("misc.shm")

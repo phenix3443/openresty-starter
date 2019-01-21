@@ -1,4 +1,0 @@
--- -*- coding:utf-8 -*-
---- 测试代码的配置.
--- @module test.config
--- @author:phenix3443@gmail.com

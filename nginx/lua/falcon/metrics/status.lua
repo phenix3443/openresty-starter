@@ -1,6 +1,6 @@
 -- -*- coding:utf-8; -*-
 --- 统计接口 http status.
--- @module status
+-- @module metrics.status
 -- @author:phenix3443@gmail.com
 
 local stringx = require("pl.stringx")

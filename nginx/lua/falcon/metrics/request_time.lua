@@ -1,6 +1,6 @@
 -- -*- coding:utf-8; -*-
 --- 统计接口 request_time.
--- @module request_time
+-- @module metrics.request_time
 -- @author:phenix3443@gmail.com
 
 local stringx = require("pl.stringx")

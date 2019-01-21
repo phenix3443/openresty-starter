@@ -1,6 +1,6 @@
 -- -*- coding:utf-8 -*-
 --- 上报统计结果到 falcon.
--- @module report
+-- @script report
 -- @author:phenix3443@gmail.com
 
 local cjson = require("cjson.safe")

@@ -1,7 +1,7 @@
 -- -*- coding:utf-8; -*-
 --- 统计接口 qps.
 -- qps(query per second)
--- @module qps
+-- @module metrics.qps
 -- @author:phenix3443@gmail.com
 
 local stringx = require("pl.stringx")
