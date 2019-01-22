@@ -8,13 +8,13 @@ local lu = require("luaunit")
 
 local utils = require("misc.utils")
 
---- 测试 concat_k_v
-local function test_concat_k_v()
+--- 测试 concat_kv
+local function test_concat_kv()
     local t = {
         a = "b",
         c = 10,
     }
-    local str = utils.concat_k_v(",", t)
+    local str = utils.concat_kv(",", t)
     print(str)
 end
 

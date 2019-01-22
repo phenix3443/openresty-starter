@@ -29,7 +29,7 @@ end
 -- @param t 待处理的 table
 -- @param pos 连接字符
 -- @treturn string
-function M.concat_k_v(t, pos)
+function M.concat_kv(t, pos)
     local f = function(k,v) return string.format("%s=%s", k, v) end
     local t = tablex.pairmap(f, t)
     local str = table.concat(t, pos)
