@@ -37,23 +37,12 @@ function M.concat_kv(t, pos)
     return str
 end
 
---- 针对 http 错误返回响应
--- @tparam number status http 标准状态码
--- @tparam string body 返回的响应 body
-function M.send_err_resp(status,body)
-    ngx.status = status
-    if body then
-        ngx.print(body)
-    end
-    ngx.exit(ngx.HTTP_OK)
-end
 
---- 返回正常请求
--- 这种情况下，响应的 http_status=200
+--- 返回响应
 -- @param code 错误码
 -- @param data 响应数据
-function M.send_resp(code, data)
-    ngx.status = ngx.HTTP_OK
+function M.send_resp(status, code, data)
+    ngx.status = status
     ngx.header["Content-Type"] = "application/json"
 
     local domain = ngx.var.server_name
@@ -61,14 +50,16 @@ function M.send_resp(code, data)
     local shm_key = retcode.gen_shm_key(domain, url, code)
     shm.incr_value(shm_key)
 
-    local resp  = {}
-    resp.iRet = code
-    resp.sMsg = err_def.msg[code]
-    resp.data = data
+    local resp  = {
+        code = code,
+        msg = err_def.msg[code],
+        data = data
+    }
 
     local client_resp = cjson.encode(resp)
     ngx.log(ngx.INFO, "resp:", client_resp)
     ngx.print(client_resp)
+
     ngx.exit(ngx.HTTP_OK)
 end
 

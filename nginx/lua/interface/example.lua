@@ -56,14 +56,9 @@ end
 --- 生成响应的 body
 -- @param req 对应的请求字段
 local function gen_resp(req)
-    local resp = {}
-    resp.code = err_def.code["success"]
-    resp.msg = err_def.msg[resp.code]
-    resp.data = {}
+    local data = {}
 
-    local client_resp = cjson.encode(resp)
-    ngx.log(ngx.INFO, "resp: ", client_resp)
-    return client_resp
+    return data
 end
 
 --- 请求处理接口
@@ -72,7 +67,7 @@ local function main()
 
     local resp = gen_resp(req)
 
-    utils.send_resp(ngx.HTTP_OK, resp)
+    utils.send_resp(ngx.HTTP_OK, err_def.code.OK, resp)
 end
 
 main()
