@@ -35,7 +35,7 @@ MOCK_CID=$(docker run \
 
 
 # 使用 luarocks 安装依赖
-docker exec example yum install -y gcc
-docker exec example sh /usr/local/openresty/nginx/lib/luarocks.sh
+docker exec ${MOCK_CID} yum install -y gcc
+docker exec ${MOCK_CID} sh /usr/local/openresty/nginx/lib/luarocks.sh
 
 echo "example mock cid: "${MOCK_CID}
