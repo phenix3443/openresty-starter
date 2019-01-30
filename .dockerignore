@@ -1,0 +1,13 @@
+**/*~
+**/*.md
+**/*.org
+**/doc
+build/
+build_openresty.sh
+CMakeLists.txt
+install.cmake
+nginx/logs/
+LICENSE
+mock.sh
+script/
+test/
