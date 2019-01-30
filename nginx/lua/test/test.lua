@@ -4,11 +4,12 @@
 -- @author:phenix3443@gmail.com
 
 local cjson = require("cjson.safe")
-local falcon = require("falcon.falcon")
+local shm = require("misc.shm")
 local database = require("database.database")
 
 --- 测试主函数
 local function main()
+    ngx.say("hello,world")
     -- local dict = ngx.shared[""]
     -- dict:flush_all()
 

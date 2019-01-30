@@ -6,7 +6,7 @@
 local cjson = require("cjson.safe")
 
 local conf = require("conf.common")
-local ExampleDB = require("database.example_db")
+local ExampleDB = require("database.example")
 
 local M = {}
 

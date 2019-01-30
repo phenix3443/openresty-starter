@@ -7,8 +7,7 @@ local cjson = require("cjson.safe")
 
 local cfg = require("conf.common")
 local err_def = require("conf.err_def")
-local upstream_cfg = require("conf.upstream")
-local example = require("upstream.example")
+local ucfg = require("conf.upstream")
 local database = require("database.database")
 local cache = require("cache.cache")
 local utils = require("misc.utils")
@@ -25,27 +24,27 @@ local function get_req()
     ngx.log(ngx.DEBUG, "query:", cjson.encode(query))
 
     -- body
-    ngx.req.read_body()
-    local body = ngx.req.get_body_data()
-    if not body then
-        local err_msg = string.format("缺少 body")
-        utils.send_resp(ngx.HTTP_BAD_REQUEST, err_msg)
-    end
-    ngx.log(ngx.DEBUG, "body:", body)
+    -- ngx.req.read_body()
+    -- local body = ngx.req.get_body_data()
+    -- if not body then
+    --     local err_msg = string.format("缺少 body")
+    --     utils.send_resp(ngx.HTTP_BAD_REQUEST, err_msg)
+    -- end
+    -- ngx.log(ngx.DEBUG, "body:", body)
 
-    local data = cjson.decode(body)
-    if not data then
-        local err_msg = string.format("json decode body failed")
-        utils.send_resp(ngx.HTTP_BAD_REQUEST, err_msg)
-    end
+    -- local data = cjson.decode(body)
+    -- if not data then
+    --     local err_msg = string.format("json decode body failed")
+    --     utils.send_resp(ngx.HTTP_BAD_REQUEST, err_msg)
+    -- end
 
-    local required = {}
-    for _,k in pairs(required) do
-        if data[k] then
-            local err_msg = string.format("body lack:%s", k)
-            utils.send_resp(ngx.HTTP_BAD_REQUEST, err_msg)
-        end
-    end
+    -- local required = {}
+    -- for _,k in pairs(required) do
+    --     if data[k] then
+    --         local err_msg = string.format("body lack:%s", k)
+    --         utils.send_resp(ngx.HTTP_BAD_REQUEST, err_msg)
+    --     end
+    -- end
 
     local req = {}
 
