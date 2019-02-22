@@ -36,10 +36,12 @@ function M:_init(redis_cfg)
         end
     end
 
-    ok, err = red:select(redis_cfg.database)
-    if not ok then
-        ngx.log(ngx.ERR,"failed to select database: ", err)
-        return
+    if redis_cfg.database then
+        ok, err = red:select(redis_cfg.database)
+        if not ok then
+            ngx.log(ngx.ERR,"failed to select database: ", err)
+            return
+        end
     end
 
     ngx.log(ngx.DEBUG,"connected to redis.")
