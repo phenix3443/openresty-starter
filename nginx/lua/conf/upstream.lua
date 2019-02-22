@@ -76,7 +76,6 @@ elseif conf.mode == "pre-release" then
         charset = "utf8",
     }
 elseif conf.mode == "release" then
-
     M.falcon = {
         host = "falcon-agent.localhost",
         uri = "http://127.0.0.1:30976",
