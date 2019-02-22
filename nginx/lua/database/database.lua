@@ -5,7 +5,8 @@
 
 local cjson = require("cjson.safe")
 
-local conf = require("conf.common")
+local cfg = require("conf.common")
+local ucfg = require("conf.upstream")
 local ExampleDB = require("database.example")
 
 local M = {}
@@ -14,7 +15,7 @@ local M = {}
 --- 示例程序
 -- 获取 example_db 版本信息
 function M.get_example_db_version()
-    local example_db = ExampleDB(conf.example_db)
+    local example_db = ExampleDB(ucfg.example_db)
     if not example_db:is_connected() then
         return
     end

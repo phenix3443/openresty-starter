@@ -6,7 +6,8 @@
 
 local cjson = require("cjson.safe")
 
-local conf = require("conf.common")
+local cfg = require("conf.common")
+local ucfg = require("conf.upstream")
 local ExampleCache = require("cache.example")
 
 local M = {}
@@ -14,7 +15,7 @@ local M = {}
 --- 示例程序
 -- 获取 example_cache 实例的相关信息
 function M.get_example_cache_info()
-    local example_cache = ExampleCache(conf.example_cache)
+    local example_cache = ExampleCache(ucfg.example_cache)
     if not example_cache:is_connected() then
         return
     end
