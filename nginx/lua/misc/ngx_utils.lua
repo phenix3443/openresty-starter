@@ -41,9 +41,7 @@ function M.send_resp(status, code, data)
     }
 
     local client_resp = cjson.encode(resp)
-    ngx.log(ngx.INFO, "resp:", client_resp)
     ngx.print(client_resp)
-
     ngx.exit(ngx.HTTP_OK)
 end
 
