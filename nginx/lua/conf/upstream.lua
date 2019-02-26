@@ -10,15 +10,15 @@ local M = {}
 if conf.mode == "mock" then
     --- falcon 接口
     M.falcon = {
-        host = "falcon-agent.mock",
+        host = "falcon-agent",
         uri = "http://127.0.0.1",
     }
     --- example_cache 配置
     M.example_cache = {
-        name = "example_cache.mock",
+        name = "example_cache",
         host = "127.0.0.1",
         port = 6379,
-        database = 0,
+        database = nil,
         password = nil
     }
     --- example_db 配置
