@@ -31,14 +31,13 @@ if conf.mode == "mock" then
         charset = "utf8",
     }
 elseif conf.mode == "develop" then
-
     M.falcon = {
-        host = "falcon-agent.localhost",
+        host = "falcon-agent",
         uri = "http://127.0.0.1:30976",
     }
 
     M.example_cache = {
-        name = "",
+        name = "example_cache",
         host = "127.0.0.1",
         port = 6379,
         database = 0,
@@ -55,12 +54,12 @@ elseif conf.mode == "develop" then
     }
 elseif conf.mode == "pre-release" then
     M.falcon = {
-        host = "falcon-agent.localhost",
+        host = "falcon-agent",
         uri = "http://127.0.0.1:30976",
     }
 
     M.example_cache = {
-        name = "",
+        name = "example_cache",
         host = "127.0.0.1",
         port = 6379,
         database = 0,
@@ -77,12 +76,12 @@ elseif conf.mode == "pre-release" then
     }
 elseif conf.mode == "release" then
     M.falcon = {
-        host = "falcon-agent.localhost",
+        host = "falcon-agent",
         uri = "http://127.0.0.1:30976",
     }
 
     M.example_cache = {
-        name = "",
+        name = "example_cache",
         host = "127.0.0.1",
         port = 6379,
         database = 0,

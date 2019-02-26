@@ -20,6 +20,7 @@ elif config.RUN_TIME == "pre-release":
         "host": "example.com",
         "uri": "https://www.example.com",
     }
+
 elif config.RUN_TIME == "release":
     Example = {
         "host": "example.com",
