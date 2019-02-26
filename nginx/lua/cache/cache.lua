@@ -19,10 +19,10 @@ function M.get_example_cache_info()
     if not example_cache:is_connected() then
         return
     end
-    local ok = example_cache:get_info()
+    local info = example_cache:get_info()
     example_cache:close()
 
-    return ok
+    return info
 end
 
 -- 以下是具体的接口 -----------------------------------------------------------

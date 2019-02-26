@@ -14,14 +14,12 @@ local M = class(redis_helper)
 --- 示例程序.
 -- 获取 example_cache 相关信息。
 function M:get_info()
-    local info, err = self.red:info()
-    if not info then
+    local res, err = self.red:info()
+    if not res then
        ngx.log(ngx.ERR, "failed to get info: ", err)
         return
     end
-    ngx.log(ngx.DEBUG, "info:", info)
-
-    return info
+    return self.red:array_to_hash(res)
 end
 
 -- 添加业务代码 ---------------------------------------------------------------
