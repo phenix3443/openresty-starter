@@ -12,11 +12,14 @@ local M = {}
 
 --- 获取真实的客户端 IP
 function M.get_client_ip()
-    local headers = ngx.req.get_headers()
+    local hd = ngx.req.get_headers()
     local client_ip = ngx.var.remote_addr
-    if headers.x_real_ip then
-        ngx.log(ngx.DEBUG, "来自转发")
-        client_ip = headers.x_real_ip
+    local forward = hd.x_forwarded_for
+    if forward then
+        local ips = stringx.split(forward)
+        if #ips > 0 then
+            client_ip = ips[1]
+        end
     end
     ngx.log(ngx.DEBUG, "client_ip:", client_ip)
     return client_ip
