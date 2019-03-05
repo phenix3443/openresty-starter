@@ -3,6 +3,7 @@
 -- @module ngx_utils
 -- @author:liushangliang@xunlei.com
 local cjson = require("cjson.safe")
+local stringx = require("pl.stringx")
 
 local err_def = require("conf.err_def")
 local shm = require ("misc.shm")
@@ -16,9 +17,9 @@ function M.get_client_ip()
     local client_ip = ngx.var.remote_addr
     local forward = hd.x_forwarded_for
     if forward then
-        local ips = stringx.split(forward)
+        local ips = stringx.split(forward, ",")
         if #ips > 0 then
-            client_ip = ips[1]
+            client_ip = stringx.strip(ips[1])
         end
     end
     ngx.log(ngx.DEBUG, "client_ip:", client_ip)
