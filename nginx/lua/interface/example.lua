@@ -70,7 +70,7 @@ local function main()
 
     local resp = gen_resp(req)
 
-    ngx_utils.send_resp(ngx.HTTP_OK, err_def.code.OK, resp)
+    ngx_utils.send_resp(ngx.HTTP_OK, err_def.code.OK, nil, resp)
 end
 
 main()

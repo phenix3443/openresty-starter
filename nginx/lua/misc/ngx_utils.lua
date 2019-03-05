@@ -28,7 +28,7 @@ end
 --- 返回响应
 -- @param code 错误码
 -- @param data 响应数据
-function M.send_resp(status, code, data)
+function M.send_resp(status, code, msg, data)
     ngx.status = status
     ngx.header["Content-Type"] = "application/json"
 
@@ -39,7 +39,7 @@ function M.send_resp(status, code, data)
 
     local resp  = {
         code = code,
-        msg = err_def.msg[code],
+        msg = msg or err_def.msg[code],
         data = data
     }
 
