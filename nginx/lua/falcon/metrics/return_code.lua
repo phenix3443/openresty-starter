@@ -19,7 +19,7 @@ M.metric = "ret_code"
 -- @param ret_code 返回的错误码
 function M.gen_shm_key(domain, url, ret_code)
     local shm_key = string.format("%s:%s:%s:%s", M.metric, domain, url, ret_code)
-    ngx.log(ngx.DEBUG, "shm_key=", shm_key)
+    -- ngx.log(ngx.DEBUG, "shm_key=", shm_key)
     return shm_key
 end
 

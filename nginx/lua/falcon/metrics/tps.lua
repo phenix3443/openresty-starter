@@ -19,7 +19,7 @@ M.metric = "tps"
 -- @param url 统计点对应的 url
 function M.gen_shm_key(domain, url)
     local shm_key = string.format("%s:%s:%s", M.metric, domain, url)
-    ngx.log(ngx.DEBUG, "shm_key=", shm_key)
+    -- ngx.log(ngx.DEBUG, "shm_key=", shm_key)
     return shm_key
 end
 

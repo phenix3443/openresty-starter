@@ -49,8 +49,8 @@ function M.incr_value(shm_key)
         ngx.log(ngx.ERR, "ngx_lua_version too low")
     else
         local newval, err, forcible = dict:incr(shm_key, 1, 0)
-        local log_msg = string.format("new value for %s = %s", shm_key, newval)
-        ngx.log(ngx.DEBUG, log_msg)
+        -- local log_msg = string.format("new value for %s = %s", shm_key, newval)
+        -- ngx.log(ngx.DEBUG, log_msg)
     end
 end
 
