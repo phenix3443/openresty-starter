@@ -64,7 +64,7 @@ function M.gen_falcon_item(shm_key, value)
     item.timestamp = ngx.time()
     item.value = value
 
-    ngx.log(ngx.DEBUG, "shm_key=", shm_key,"value=",value,",item=", cjson.encode(item))
+    --ngx.log(ngx.DEBUG, "shm_key=", shm_key,"value=",value,",item=", cjson.encode(item))
     return item
 end
 
@@ -82,7 +82,7 @@ function M.gen_falcon_payload()
             table.insert(payload, item)
         end
     end
-    ngx.log(ngx.DEBUG, "payload from shm:",cjson.encode(payload))
+    --ngx.log(ngx.DEBUG, "payload from shm:",cjson.encode(payload))
     return payload
 end
 
