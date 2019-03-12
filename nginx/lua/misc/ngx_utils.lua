@@ -1,7 +1,7 @@
 -- -*- coding:utf-8 -*-
 --- nginx 通用工具函数.
 -- @module ngx_utils
--- @author:liushangliang@xunlei.com
+-- @author:phenix3443+github@gmail.com
 local cjson = require("cjson.safe")
 local stringx = require("pl.stringx")
 
