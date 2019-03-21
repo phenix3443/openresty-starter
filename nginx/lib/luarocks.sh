@@ -4,5 +4,5 @@ LIBS="lua-cjson penlight version lua-resty-http luaunit ldoc lua-discount"
 INSTALL_DIR=example-dir
 for lib in ${LIBS}; do
     echo ${lib}
-    luarocks --tree ${INSTALL_IDR} install ${lib}
+    luarocks --tree ${INSTALL_DIR} install ${lib}
 done
