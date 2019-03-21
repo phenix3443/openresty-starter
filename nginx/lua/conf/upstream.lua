@@ -3,11 +3,11 @@
 -- @module conf.upstream
 -- @author:phenix3443@gmail.com
 
-local conf = require("conf.common")
+local cfg = require("conf.common")
 
 local M = {}
 
-if conf.mode == "mock" then
+if cfg.mode == "mock" then
     --- falcon 接口
     M.falcon = {
         host = "falcon-agent",
@@ -30,7 +30,7 @@ if conf.mode == "mock" then
         password = "",
         charset = "utf8",
     }
-elseif conf.mode == "develop" then
+elseif cfg.mode == "develop" then
     M.falcon = {
         host = "falcon-agent",
         uri = "http://127.0.0.1:30976",
@@ -52,7 +52,7 @@ elseif conf.mode == "develop" then
         password = "",
         charset = "utf8",
     }
-elseif conf.mode == "pre-release" then
+elseif cfg.mode == "pre-release" then
     M.falcon = {
         host = "falcon-agent",
         uri = "http://127.0.0.1:30976",
@@ -74,7 +74,7 @@ elseif conf.mode == "pre-release" then
         password = "",
         charset = "utf8",
     }
-elseif conf.mode == "release" then
+elseif cfg.mode == "release" then
     M.falcon = {
         host = "falcon-agent",
         uri = "http://127.0.0.1:30976",
