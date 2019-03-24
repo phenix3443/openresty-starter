@@ -1,0 +1,7 @@
+-- -*-mode:lua;coding:utf-8-*-
+
+include = {
+    "lua/misc/lang",
+}
+
+tick = true

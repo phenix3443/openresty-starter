@@ -1,5 +1,5 @@
 -- -*- coding:utf-8 -*-
---- http 头部语言相关.
+--- 解析 HTTP 头部 AcceptLanguage 参数
 -- @module lang
 -- @author:phenix3443@gmail.com
 
@@ -13,13 +13,16 @@ local M = {}
 -- @tparam string accept_lang  http 头部中 Accept_Language 字段
 -- @treturn {lang:weight...} 语言和权重的对应表
 function M.get_lang_options(accept_lang)
-    local options = {}
+    if not (accept_lang and type(accept_lang) == "string" and string.len(accept_lang) > 0) then
+        return
+    end
 
-    for _,lq in pairs(stringx.split(accept_lang, ",")) do
-        local s = stringx.split(lq, ";")
+    local options = {}
+    for _,lq in pairs(stringx.split(accept_lang, ",")) do -- 语言之间是使用逗号分割的
+        local s = stringx.split(lq, ";")                  -- 语言和权重之间是使用分号分割的
         local l = s[1]
-        local q = 1
-        if s[2] and s[2] ~= "" then
+        local q = 1                 -- 默认权重是 1
+        if s[2] and s[2] ~= "" then -- 可能有的语言没有设置权重参数
             local t = stringx.split(s[2],"=")[2]
             if t and tonumber(t) then
                 q = tonumber(t)
@@ -36,9 +39,9 @@ end
 -- @treturn string 返回权重最大的语言
 function M.get_favor_lang(accept_lang)
     local favor
-    local options = M.get_lang_options(accept_lang or "")
+    local options = M.get_lang_options(accept_lang)
 
-    if next(options) then
+    if options and next(options) then
         local iter = tablex.sortv(options, function(x,y) return x>y end )
         favor,_ = iter(1)
     end
