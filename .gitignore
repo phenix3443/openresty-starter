@@ -8,3 +8,5 @@ GTAGS
 build/
 *.lock
 logs/
+luarocks/
+*.out
