@@ -9,10 +9,10 @@ local M = {}
 M.project = "example"
 
 --- 当前运行环境.
--- mock：本地开发环境，必要时外部接口使用 mock 实现。
--- develop：开发环境。
--- pre-release：预发布环境。
--- release：生产环境。
-M.mode = "mock"
+-- M.mode = "mock"                 -- 本地开发环境，必要时外部接口使用 mock 实现。
+-- M.mode = "develop"              -- develop：开发环境。
+-- M.mode = "pre-release"          -- 预发布环境。
+M.mode = "release"              -- 生产环境
+
 
 return M
