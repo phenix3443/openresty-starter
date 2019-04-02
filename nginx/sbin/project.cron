@@ -3,9 +3,9 @@
 # desc: 项目对应的 crontab 任务
 
 # example-project crontab start
-* * * * * <example-project-path>/nginx/sbin/monitor.sh
-* * * * * <example-project-path>/nginx/sbin/report_falcon.sh
-# 1 * * * * <example-project-path>/nginx/sbin/log_split.sh > /dev/null 2>&1 &
+* * * * * <example-project-path>/nginx/sbin/monitor.sh > /dev/null 2>&1
+* * * * * <example-project-path>/nginx/sbin/report_falcon.sh > /dev/null 2>&1
+# 1 * * * * <example-project-path>/nginx/sbin/log_split.sh > /dev/null 2>&1
 # clean nginx log
 59 23 * * * /usr/sbin/logrotate -f /usr/local/openresty/nginx/conf/logrotate.conf
 # example-project crontab end
