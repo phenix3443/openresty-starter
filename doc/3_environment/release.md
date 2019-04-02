@@ -29,8 +29,7 @@ mysql -h127.0.0.1 -u<user> -p<password> <db_name>
 ## redis ##
 
 ``` shell
-redis-cli -h -p -a
-select
+redis-cli -h -p -a -n
 ```
 
 # 部署操作 #

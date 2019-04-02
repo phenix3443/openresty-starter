@@ -1,10 +1,7 @@
 <!-- -*-coding:utf-8-*- -->
 
-开发环境。
-
 # 当前版本 #
-
-说明当前生产环境的版本。
+开发环境。
 
 # 部署 #
 |      | server |
@@ -34,8 +31,7 @@ mysql -h127.0.0.1 -u<user> -p<password> <db_name>
 ## redis ##
 
 ``` shell
-redis-cli -h -p -a
-select
+redis-cli -h -p -a -n
 ```
 
 # 部署操作 #
