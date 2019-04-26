@@ -18,6 +18,8 @@ local M = class(http_helper)
 -- @param path 请求路径
 -- @param params 参数
 function M:send(path, params)
+    ngx.log(ngx.DEBUG, "path:", path, ",params",cjson.encode(params))
+
     local res, err = self.httpc:request_uri(self.uri .. path, params)
     if not res then
         ngx.log(ngx.ERR, "failed to get resp:", err)
