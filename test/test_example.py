@@ -1,6 +1,8 @@
 # python3
 # -*- coding:utf-8 -*-
-"""远场 IS 服务接口测试"""
+"""远场 IS 服务接口测试
+python3 -m unittest
+"""
 import logging
 import unittest
 import json

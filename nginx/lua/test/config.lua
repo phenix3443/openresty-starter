@@ -1,4 +1,4 @@
-local project_path = "../../"
-local luarocks_path = project_path .. "luarocks/share/lua/5.1/"
-package.path=project_path .. "lua/?.lua;" .. luarocks_path .."?.lua;".. package.path
-package.cpath=luarocks_path .."?.so;"..package.cpath
+_G.project_path = "../../"
+_G.luarocks_path = _G.project_path .. "luarocks/share/lua/5.1/"
+package.path = string.format("%slua/?.lua;%s?.lua;%s", _G.project_path, _G.luarocks_path, package.path)
+package.cpath = string.format("%s?.so;%s", _G.luarocks_path, package.cpath)

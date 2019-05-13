@@ -6,7 +6,7 @@ import config
 if config.RUN_TIME == "mock":
     Example = {
         "host": "example.com",
-        "uri": "http://127.0.0.1:9000/service/bubble",
+        "uri": "http://127.0.0.1:9000",
     }
 
 elif config.RUN_TIME == "develop":

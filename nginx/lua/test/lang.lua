@@ -11,7 +11,7 @@ local lu = require("luaunit")
 local lang = require("misc.lang")
 
 _G.test_get_lang_options = {}
-function test_get_lang_options:setUp ()
+function test_get_lang_options:setUp()
 
 end
 
