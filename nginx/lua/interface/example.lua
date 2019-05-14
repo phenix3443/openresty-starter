@@ -13,7 +13,7 @@ local database = require("database.database")
 local cache = require("cache.cache")
 
 local utils = require("misc.utils")
-local ngx_utils = require("misc.ngx_utils")
+local ngx_utils = require("misc.ngx")
 
 --- 获取请求中的所有字段
 -- @treturn {key=value...} req 返回所有字段的 table

@@ -9,7 +9,7 @@ local cjson = require("cjson.safe")
 local err_def = require("conf.err_def")
 
 local utils = require("misc.utils")
-local ngx_utils = require("misc.ngx_utils")
+local ngx_utils = require("misc.ngx")
 
 --- 检查 http url 中的 公共 query 参数
 local function check_query()
