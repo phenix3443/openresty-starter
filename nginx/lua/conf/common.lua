@@ -14,5 +14,21 @@ M.project = "example"
 -- M.mode = "pre-release"          -- 预发布环境。
 M.mode = "release"              -- 生产环境
 
+M.ipdb = {
+    db = ngx.config.prefix() .. "lua/misc/ipdb.mmdb"
+}
+
+M.mmdb = {
+    city_db = ngx.config.prefix() .. "lua/misc/GeoLite2-City.mmdb",
+    asn_db = ngx.config.prefix() .. "lua/misc/GeoLite2-ASN.mmdb"
+}
+
+M.geo = {
+    country = ngx.config.prefix()..'/lua/misc/country',
+    area = ngx.config.prefix()..'/lua/misc/area',
+    prov = ngx.config.prefix()..'/lua/misc/province',
+    city = ngx.config.prefix()..'/lua/misc/city',
+    isp = ngx.config.prefix()..'/lua/misc/isp',
+}
 
 return M
