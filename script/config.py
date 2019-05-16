@@ -14,7 +14,10 @@ PROJECT_PATH = os.path.normpath("{}/script/".format(SCRIPT_PATH))
 
 logging.config.dictConfig(log_cfg.SETTINGS)
 
-RUN_TIME = "release"
+# RUN_TIME = "mock"  #当前环境
+# RUN_TIME = "develop"  #当前环境
+# RUN_TIME = "pre-release"  #当前环境
+RUN_TIME = "release"  #当前环境
 
 if __name__ == '__main__':
     pass
