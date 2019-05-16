@@ -3,7 +3,7 @@
 -- @module ip 信息解析.
 -- @author:phenix3443+github@gmail.com
 
-local mmdb = require("mmdb")
+local mmdb = require("mmdb.init")
 local class = require("pl.class")
 
 local ip_str = require("misc.ip_str")
