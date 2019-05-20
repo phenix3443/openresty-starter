@@ -4,4 +4,5 @@
 # description: nginx http server.
 # Settings Nginx
 HOST=example
-curl -H "Host:${HOST}" 'http://127.0.0.1/stat'
+PORT=9086
+curl -H "Host:${HOST}" 'http://127.0.0.1:${PORT}/stat'
