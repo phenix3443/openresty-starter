@@ -3,6 +3,6 @@
 # author:phenix3443+github@gmail.com
 # description: nginx http server.
 # Settings Nginx
-HOST=example
+HOST=inner.example.com
 PORT=9086
-curl -H "Host:${HOST}" 'http://127.0.0.1:${PORT}/stat'
+curl -H "Host:${HOST}" http://127.0.0.1:${PORT}/stat
