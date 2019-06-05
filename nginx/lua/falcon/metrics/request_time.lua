@@ -21,7 +21,7 @@ function M.gen_shm_key(domain, url, request_time)
     local interval = 50 --milliseconds
     -- 如果 time_range = 50 表示 0-50ms 以内，100 表示 50-100ms
     -- ngx.log(ngx.DEBUG, "request_time", request_time)
-    local time_range = math.ceil(request_time/interval) * interval
+    local time_range = math.ceil(request_time*1000/interval) * interval
     local shm_key = string.format("%s:%s:%s:%s", M.metric, domain, url, time_range)
     -- ngx.log(ngx.DEBUG, "shm_key=", shm_key)
     return shm_key
