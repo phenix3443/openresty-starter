@@ -22,9 +22,9 @@
 
 
 ## body ##
-JSON 字符串。
-
-使用`multipart/form-data`格式。
+格式 `application/json`
+格式 `application/x-www-form-urlencoded`
+格式 `multipart/form-data`格式。
 
 | 参数 | 类型 | 是否必需 | 描述 | 注意事项 |
 |------|------|----------|------|----------|
