@@ -17,18 +17,13 @@
 | Host |        |
 | Port | 80     |
 
-# 本地 host 设置 #
-> IP domain
-
-# 数据库 #
-
-## mysql ##
+# mysql #
 
 ``` shell
 mysql -h127.0.0.1 -u<user> -p<password> <db_name>
 ```
 
-## redis ##
+# redis #
 
 ``` shell
 redis-cli -h -p -a -n
