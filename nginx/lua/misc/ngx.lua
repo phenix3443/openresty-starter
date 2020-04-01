@@ -6,7 +6,7 @@ local cjson = require("cjson.safe")
 local stringx = require("pl.stringx")
 
 local err_def = require("conf.err_def")
-local shm = require ("misc.shm")
+local shm = require("misc.shm")
 local retcode = require("falcon.metrics.return_code")
 
 local M = {}
@@ -14,7 +14,15 @@ local M = {}
 --- 获取真实的客户端 IP
 function M.get_client_ip()
     local hd = ngx.req.get_headers()
-    ngx.log(ngx.DEBUG,"remote_ip=",ngx.var.remote_addr, ",real_ip=",hd.x_real_ip,",x-forward-ip=", hd.x_forwarded_for)
+    ngx.log(
+        ngx.DEBUG,
+        "remote_ip=",
+        ngx.var.remote_addr,
+        ",real_ip=",
+        hd.x_real_ip,
+        ",x-forward-ip=",
+        hd.x_forwarded_for
+    )
 
     local client_ip = ngx.var.remote_addr
 
@@ -46,7 +54,7 @@ function M.send_resp(status, code, msg, data)
     local shm_key = retcode.gen_shm_key(domain, url, code)
     shm.incr_value(shm_key)
 
-    local resp  = {
+    local resp = {
         code = code,
         msg = msg or err_def.msg[code],
         data = data
@@ -54,7 +62,7 @@ function M.send_resp(status, code, msg, data)
 
     local client_resp = cjson.encode(resp)
     ngx.print(client_resp)
-    ngx.exit(ngx.HTTP_OK)
+    ngx.exit(status)
 end
 
 return M
