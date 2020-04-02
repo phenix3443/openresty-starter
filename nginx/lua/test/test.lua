@@ -2,13 +2,18 @@
 --- 测试接口.
 -- @script test
 -- @author:phenix3443@gmail.com
+-- bin/resty --errlog-level debug --http-include nginx/lua/test/test.nginx.conf nginx/lua/test/test.lua
 
 local cjson = require("cjson.safe")
 local shm = require("misc.shm")
 local database = require("database.database")
 
---- 测试主函数
-local function main()
+_G.test_suite = {}
+function test_suite:setUp()
+    self.ac = account(ufg.account)
+end
+
+function test_suite:test_func()
     ngx.say("hello,world")
     -- local dict = ngx.shared[""]
     -- dict:flush_all()
@@ -26,6 +31,9 @@ local function main()
 
     -- local version = database.get_main_db_version()
     -- ngx.say(version)
+end
+
+function test_suite:tearDown()
 end
 
 main()
