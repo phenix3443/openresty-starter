@@ -8,7 +8,7 @@ import json
 logger = logging.getLogger(__name__)
 
 
-class ExampleServer:
+class Server:
     """要测试的服务"""
 
     def __init__(self, cfg):
@@ -33,5 +33,5 @@ class ExampleServer:
     # 下面是接口
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     pass

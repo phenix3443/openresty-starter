@@ -4,25 +4,13 @@
 import config
 
 if config.RUN_TIME == "mock":
-    Example = {
-        "host": "example.com",
-        "uri": "http://127.0.0.1:9000",
-    }
+    Server = {"host": "example.com", "uri": "http://127.0.0.1:9000"}
 
 elif config.RUN_TIME == "develop":
-    Example = {
-        "host": "example.com",
-        "uri": "http://www.example.com",
-    }
+    Server = {"host": "example.com", "uri": "http://www.example.com"}
 
 elif config.RUN_TIME == "pre-release":
-    Example = {
-        "host": "example.com",
-        "uri": "https://www.example.com",
-    }
+    Server = {"host": "example.com", "uri": "http://www.example.com"}
 
 elif config.RUN_TIME == "release":
-    Example = {
-        "host": "example.com",
-        "uri": "https://www.example.com",
-    }
+    Server = {"host": "example.com", "uri": "http://www.example.com"}
