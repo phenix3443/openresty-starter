@@ -43,7 +43,10 @@
 # 请求示例
 
 ```shell
-curl -v -d'' -H "Host:<example-domain>" https://<example-ip>/<example-interface>
+curl https://<example-ip>/<example-interface> \
+-H "Host:" \
+-X POST \
+-d '{}'
 ```
 
 # 响应示例
