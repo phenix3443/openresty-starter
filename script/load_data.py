@@ -8,6 +8,8 @@ import datetime
 import os
 from cloghandler import ConcurrentRotatingFileHandler
 
+import log_cfg
+
 logger = logging.getLogger("load_data_to_db")
 
 
@@ -17,7 +19,7 @@ def handle_small_file():
     logger.info("start handle {}".format(data))
 
     cursor = conn.cursor()
-    with open(data, 'r') as f:
+    with open(data, "r") as f:
         once = 20000  # 一次处理数据
         uids = [int(line.split()[0]) for line in f]
         count = len(uids)
@@ -39,7 +41,7 @@ def handle_big_file():
     data = "data.txt"
     logger.info("start handle {}".format(data))
     cursor = conn.cursor()
-    with open(data, 'r') as f:
+    with open(data, "r") as f:
         # 这种方法适合处理大文件
         once = 20000  # 一次处理的行数
         stmt = "update example set not_login_days=%s where user_id=%s;"
@@ -59,16 +61,17 @@ def handle_big_file():
     pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     logfile = os.path.join(
         config.PROJECT_DIR,
-        "logs/exampe_{}.log".format(datetime.date.today().strftime("%Y%m%d")))
+        "logs/exampe_{}.log".format(datetime.date.today().strftime("%Y%m%d")),
+    )
 
-    handler = ConcurrentRotatingFileHandler(logfile, "a", 1024 * 1024 * 1024,
-                                            1000)
+    handler = ConcurrentRotatingFileHandler(logfile, "a", 1024 * 1024 * 1024, 1000)
 
     fmt = logging.Formatter(
-        '[%(asctime)s] [%(levelname)s] [%(module)s:%(lineno)d] %(message)s')
+        "[%(asctime)s] [%(levelname)s] [%(module)s:%(lineno)d] %(message)s"
+    )
 
     handler.setFormatter(fmt)
 

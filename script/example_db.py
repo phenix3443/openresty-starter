@@ -6,14 +6,16 @@ import logging
 import mysql.connector
 
 import config
+import log_cfg
 
 logger = logging.getLogger(__name__)
 
 
-class MainDB():
+class MainDB:
     def __init__(self, cfg):
         self.conn = mysql.connector.connect(
-            pool_name="main_db_poll", pool_size=32, **cfg)
+            pool_name="main_db_poll", pool_size=32, **cfg
+        )
         self.conn.autocommit = True
 
     def get_conn(self):
