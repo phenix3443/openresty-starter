@@ -5,10 +5,6 @@
 local cjson = require("cjson.safe")
 local stringx = require("pl.stringx")
 
-local err_def = require("conf.err_def")
-local shm = require("misc.shm")
-local retcode = require("falcon.metrics.return_code")
-
 local M = {}
 
 --- 获取真实的客户端 IP
@@ -45,22 +41,9 @@ end
 --- 返回响应
 -- @param code 错误码
 -- @param data 响应数据
-function M.send_resp(status, code, msg, data)
+function M.send_resp(status, resp)
     ngx.status = status
     ngx.header["Content-Type"] = "application/json"
-
-    local domain = ngx.var.server_name
-    local url = ngx.escape_uri(ngx.var.uri)
-    local shm_key = retcode.gen_shm_key(domain, url, code)
-    shm.incr_value(shm_key)
-
-    local resp = {
-        code = code,
-        msg = msg or err_def.msg[code],
-        data = data
-    }
-
-    local client_resp = cjson.encode(resp)
     ngx.print(client_resp)
     ngx.exit(status)
 end
