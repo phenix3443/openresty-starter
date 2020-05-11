@@ -6,11 +6,12 @@
 
 local cjson = require("cjson.safe")
 local class = require("pl.class")
+local http = require("resty.http")
+
+local shm = require("misc.shm")
+local status = require("falcon.metrics.status")
 
 local http_helper = require("upstream.http_helper")
-
-local shm = require ("misc.shm")
-local status = require("falcon.metrics.status")
 
 local M = class(http_helper)
 
@@ -18,9 +19,9 @@ local M = class(http_helper)
 -- @param path 请求路径
 -- @param params 参数
 function M:send(path, params)
-    ngx.log(ngx.DEBUG, "path:", path, ",params",cjson.encode(params))
-
-    local res, err = self.httpc:request_uri(self.uri .. path, params)
+    ngx.log(ngx.DEBUG, "path:", path, ",params", cjson.encode(params))
+    local httpc = http.new()
+    local res, err = httpc:request_uri(self.uri .. path, params)
     if not res then
         ngx.log(ngx.ERR, "failed to get resp:", err)
         return
@@ -48,10 +49,9 @@ function M:report(payload)
     local params = {
         ssl_verify = false,
         method = "POST",
-        query = {
-        },
+        query = {},
         headers = {
-            Host = self.host,
+            Host = self.host
         },
         body = cjson.encode(payload)
     }

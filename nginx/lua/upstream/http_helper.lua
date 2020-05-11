@@ -5,7 +5,7 @@
 -- @author:phenix3443@gmail.com
 
 local cjson = require("cjson.safe")
-local http = require("resty.http")
+
 local class = require("pl.class")
 
 local M = class()
